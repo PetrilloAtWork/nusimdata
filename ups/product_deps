@@ -20,7 +20,7 @@ bindir      fq_dir      bin
 product         version
 canvas		v1_01_00
 
-cetbuildtools   v4_18_04        -        only_for_build
+cetbuildtools   v4_18_03        -        only_for_build
 end_product_list
 
 
