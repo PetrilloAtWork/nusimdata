@@ -1,9 +1,5 @@
-set( SIMB_LIBS ${ART_FRAMEWORK_SERVICES_REGISTRY}
-               ${ART_FRAMEWORK_CORE}
-               ${ART_FRAMEWORK_IO_ROOT_ROOTINPUT_SOURCE}
+set( SIMB_LIBS 
 	       ${CANVAS_PERSISTENCY_COMMON}
-               ${ART_FRAMEWORK_IO_SOURCES}
-               ${ART_FRAMEWORK_PRINCIPAL}
                ${CANVAS_PERSISTENCY_PROVENANCE}
                ${CANVAS_UTILITIES}
                ${FHICLCPP}
@@ -25,8 +21,10 @@ set( SIMB_LIBS ${ART_FRAMEWORK_SERVICES_REGISTRY}
                ${ROOT_MATHCORE}
                ${ROOT_THREAD} )
 
-art_make( 
-          LIB_LIBRARIES ${SIMB_LIBS} )
+cet_make( LIBRARIES ${SIMB_LIBS}
+          NO_DICTIONARY )
+
+art_dictionary( DICTIONARY_LIBRARIES nusimdata_SimulationBase )
  
 install_headers()
 install_fhicl()

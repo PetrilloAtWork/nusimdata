@@ -50,10 +50,9 @@ message(STATUS "ROOTSYS is ${ROOTSYS}")
 
 
 # macros 
-include(ArtMake)
+include(CetMake)
 include(ArtDictionary)
-include(BuildPlugins)
-include(CetRootCint)
+include(BasicPlugin)
 
 # include search path
 include_directories ( ${CMAKE_SOURCE_DIR} )
