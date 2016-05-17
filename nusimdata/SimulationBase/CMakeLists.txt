@@ -1,9 +1,9 @@
 set( SIMB_LIBS 
-	       ${CANVAS_PERSISTENCY_COMMON}
-               ${CANVAS_PERSISTENCY_PROVENANCE}
-               ${CANVAS_UTILITIES}
-               ${FHICLCPP}
-               ${CETLIB}
+	       canvas_Persistency_Common
+               canvas_Persistency_Provenance
+               canvas_Utilities
+               fhiclcpp
+               cetlib
                ${ROOT_EG}
                ${ROOT_CORE}
                ${ROOT_CINT}
