@@ -1,7 +1,7 @@
 # The parent line must be the first non-comment line in the file
 # This line defines the product name and version
 parent nusimdata  v1_01_00
-defaultqual     e9
+defaultqual     e10
 
 # These optional lines define the installed directories where
 # headers, libraries, and executables will be found
@@ -33,6 +33,12 @@ e9:prof          e9:prof
 e9:nu:debug      nu:e9:debug
 e9:nu:opt        nu:e9:opt
 e9:nu:prof       nu:e9:prof
+e10:debug        e10:debug
+e10:opt          e10:opt
+e10:prof         e10:prof
+e10:nu:debug     nu:e10:debug
+e10:nu:opt       nu:e10:opt
+e10:nu:prof      nu:e10:prof
 end_qualifier_list
 
 # Preserve tabs and formatting in emacs and vi / vim:
