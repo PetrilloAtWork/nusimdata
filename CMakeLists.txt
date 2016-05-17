@@ -1,8 +1,8 @@
 # ======================================================================
-#  nutools main build file
+#  nusimdata main build file
 #
 #  cd .../path/to/build/directory
-#  source .../path/to/nutools/ups/setup_for_development
+#  source .../path/to/nusimdata/ups/setup_for_development
 #  cmake [-DCMAKE_INSTALL_PREFIX=/install/path]
 #        -DCMAKE_BUILD_TYPE=$CETPKG_TYPE
 #        $CETPKG_SOURCE
@@ -14,7 +14,7 @@
 # ======================================================================
 
 
-# use cmake 2.8 or later
+# use cmake 3.3 or later
 cmake_minimum_required (VERSION 3.3)
 
 # cetbuildtools contains our cmake modules
@@ -43,19 +43,10 @@ find_ups_product( canvas )
 find_ups_product( cetbuildtools )
 find_ups_root(  )
 
-
-message(STATUS "ROOTSYS is ${ROOTSYS}")
-
-## find_library directives
-
-
 # macros 
 include(CetMake)
 include(ArtDictionary)
 include(BasicPlugin)
-
-# include search path
-include_directories ( ${CMAKE_SOURCE_DIR} )
 
 # source
 add_subdirectory (nusimdata)
