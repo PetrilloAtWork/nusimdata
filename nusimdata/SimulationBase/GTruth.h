@@ -21,32 +21,32 @@ namespace simb {
     GTruth();
 
     //interactions info
-    int           fGint;         ///< interaction code
-    int           fGscatter;     ///< neutrino scattering code
+    int            fGint;         ///< interaction code
+    int            fGscatter;     ///< neutrino scattering code
 
     //Event info
-    double        fweight;       ///< event interaction weight (genie internal)
-    double 	      fprobability;  ///< interaction probability
-    double 	      fXsec;         ///< cross section of interaction
-    double 	      fDiffXsec;     ///< differential cross section of interaction
+    double         fweight;       ///< event interaction weight (genie internal)
+    double         fprobability;  ///< interaction probability
+    double         fXsec;         ///< cross section of interaction
+    double         fDiffXsec;     ///< differential cross section of interaction
 
     //genie::XclsTag info
-    int           fNumPiPlus;    ///< number of pi pluses in the final state
-    int  	        fNumPiMinus;   ///< number of pi minuses in the final state
-    int  	        fNumPi0;       ///< number of pi0 in the final state
-    int  	        fNumProton;    ///< number of protons in the final state
-    int  	        fNumNeutron;   ///< number of neutrons in the final state
-    bool 	        fIsCharm;      ///< did the interaction produce a charmed hadron
-    int  	        fResNum;       ///< resonance number
+    int            fNumPiPlus;    ///< number of pi pluses after reaction, before FSI
+    int            fNumPiMinus;   ///< number of pi minuses after reaction, before FSI
+    int            fNumPi0;       ///< number of pi0 after reaction, before FSI
+    int            fNumProton;    ///< number of protons after reaction, before FSI
+    int            fNumNeutron;   ///< number of neutrons after reaction, before FSI
+    bool           fIsCharm;      ///< did the interaction produce a charmed hadron?
+    int            fResNum;       ///< resonance number
 
     //kinematics info
     ///<these are for the interal (on shell) genie kinematics
     double         fgQ2;
     double         fgq2;
-    double     	   fgW;
-    double     	   fgT;
-    double     	   fgX;
-    double     	   fgY;
+    double         fgW;
+    double         fgT;
+    double         fgX;
+    double         fgY;
     TLorentzVector fFShadSystP4;
 
     //Target info
@@ -54,7 +54,7 @@ namespace simb {
     TLorentzVector fHitNucP4;
     int            ftgtZ;
     int            ftgtA;
-    int            ftgtPDG;       ///< Target Nucleous(?) PDG
+    int            ftgtPDG;       ///< Target Nucleon PDG
 
     //Initial State info
     int            fProbePDG;
