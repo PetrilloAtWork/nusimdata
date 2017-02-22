@@ -1,9 +1,8 @@
 set( SIMB_LIBS 
-	       canvas_Persistency_Common
-               canvas_Persistency_Provenance
-               canvas_Utilities
+               canvas
                fhiclcpp
                cetlib
+	       cetlib_except
                ${ROOT_EG}
                ${ROOT_CORE}
                ${ROOT_CINT}
