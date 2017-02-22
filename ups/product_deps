@@ -1,7 +1,7 @@
 # The parent line must be the first non-comment line in the file
 # This line defines the product name and version
-parent nusimdata  v1_06_01
-defaultqual     e10
+parent nusimdata  v1_07_00
+defaultqual     e14
 
 # These optional lines define the installed directories where
 # headers, libraries, and executables will be found
@@ -18,15 +18,18 @@ bindir      fq_dir      bin
 # note that art -q nu: depends, via root, on geant4 and more
 # this means that we only need to list art, cry, and genie as a dependencies
 product         version
-canvas		v1_05_01
+canvas		v1_06_02
 
-cetbuildtools   v5_04_03        -        only_for_build
+cetbuildtools   v5_06_06        -        only_for_build
 end_product_list
 
 
 # -nq- here means there is no qualifier
 # a - here means the dependent product is not required by the parent and will not be setup
 qualifier        canvas 	       notes
+e14:debug	e14:nu:debug	
+e14:opt		e14:nu:opt
+e14:prof	e14:nu:prof	
 e10:debug	e10:nu:debug	
 e10:opt		e10:nu:opt
 e10:prof	e10:nu:prof	
