@@ -185,7 +185,7 @@ inline void                                       simb::MCTrajectory::push_back(
                                                                                 const TLorentzVector& m )
                                                          { ftrajectory.push_back( simb::MCTrajectory::value_type(p,m) ); }
 
-Inline void                                       simb::MCTrajectory::Add(const TLorentzVector& p,
+inline void                                       simb::MCTrajectory::Add(const TLorentzVector& p,
                                                                           const TLorentzVector& m )    { push_back(p,m); }
 
 inline simb::MCTrajectory::ProcessMap    const&   simb::MCTrajectory::TrajectoryProcesses() const { return fTrajectoryProcess; }
