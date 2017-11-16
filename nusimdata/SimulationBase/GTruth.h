@@ -20,17 +20,17 @@ namespace simb {
   public:
     GTruth();
 
-    //interactions info
+    // Interactions info
     int            fGint;         ///< interaction code
     int            fGscatter;     ///< neutrino scattering code
 
-    //Event info
+    // Event info
     double         fweight;       ///< event interaction weight (genie internal)
     double         fprobability;  ///< interaction probability
     double         fXsec;         ///< cross section of interaction
     double         fDiffXsec;     ///< differential cross section of interaction
 
-    //genie::XclsTag info
+    // genie::XclsTag info
     int            fNumPiPlus;    ///< number of pi pluses after reaction, before FSI
     int            fNumPiMinus;   ///< number of pi minuses after reaction, before FSI
     int            fNumPi0;       ///< number of pi0 after reaction, before FSI
@@ -39,8 +39,8 @@ namespace simb {
     bool           fIsCharm;      ///< did the interaction produce a charmed hadron?
     int            fResNum;       ///< resonance number
 
-    //kinematics info
-    ///<these are for the interal (on shell) genie kinematics
+    // Kinematics info
+    ///< these are for the internal (on shell) genie kinematics
     double         fgQ2;
     double         fgq2;
     double         fgW;
@@ -49,23 +49,23 @@ namespace simb {
     double         fgY;
     TLorentzVector fFShadSystP4;
 
-    //Target info
+    // Target info
     bool           fIsSeaQuark;
     TLorentzVector fHitNucP4;
     int            ftgtZ;
     int            ftgtA;
-    int            ftgtPDG;       ///< Target Nucleon PDG
+    int            ftgtPDG;       ///< PDG of Target Nucleus, nucleon only if free
 
-    //Initial State info
+    // Initial State info
     int            fProbePDG;
     TLorentzVector fProbeP4;
     TLorentzVector fVertex;
 
-    //Flag for values that might not have been set
+    // Flag for values that might not have been set
     static constexpr double kUndefinedValue = -99999;
 
   };
 
-} //end simp namespace
+} // end simb namespace
 
 #endif // SIMB_GTRUTH_H
