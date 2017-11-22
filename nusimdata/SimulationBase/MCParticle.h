@@ -29,9 +29,6 @@ namespace simb {
 
     MCParticle();
 
-    // Destructor.
-    virtual ~MCParticle();
-
   protected:
     typedef std::set<int>   daughters_type;
 
