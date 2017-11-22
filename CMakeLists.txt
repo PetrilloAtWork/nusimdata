@@ -52,6 +52,7 @@ include(BasicPlugin)
 
 # source
 add_subdirectory (nusimdata)
+add_subdirectory (test)
 
 # ups - table and config files
 add_subdirectory(ups)

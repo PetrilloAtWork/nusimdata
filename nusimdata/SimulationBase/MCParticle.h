@@ -65,11 +65,14 @@ namespace simb {
                const int status  = 1);
 
 
-    // our own copy and assignment constructors.
+    // our own copy and move assignment constructors (default)
     MCParticle(MCParticle const &)            = default; // Copy constructor.
     MCParticle& operator=( const MCParticle&) = default;
+    MCParticle(MCParticle&&) = default;
+    MCParticle& operator= (MCParticle&&) = default;
 
-    //constructor for copy from MCParticle, buth with offset trackID
+
+    //constructor for copy from MCParticle, but with offset trackID
     MCParticle(MCParticle const&, int);
  
     // Accessors.
