@@ -17,15 +17,18 @@
 # use cmake 3.3 or later
 cmake_minimum_required (VERSION 3.3)
 
+project(nusimdata)
+
 # cetbuildtools contains our cmake modules
 SET ( CETBUILDTOOLS_VERSION $ENV{CETBUILDTOOLS_VERSION} )
 IF (NOT CETBUILDTOOLS_VERSION)
     MESSAGE (FATAL_ERROR "ERROR: setup cetbuildtools to get the cmake modules")
 ENDIF()
 
-set(CMAKE_MODULE_PATH $ENV{CANVAS_DIR}/Modules
+set(CMAKE_MODULE_PATH $ENV{CANVAS_ROOT_IO_DIR}/Modules
                       $ENV{CETBUILDTOOLS_DIR}/Modules
                       ${CMAKE_MODULE_PATH})
+
 
 include(CetCMakeEnv)
 cet_cmake_env()
