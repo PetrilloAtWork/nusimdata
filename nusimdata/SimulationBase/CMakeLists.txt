@@ -1,8 +1,14 @@
-set( SIMB_LIBS 
+
+cet_find_library( DK2NU_TREE NAMES dk2nuTree PATHS ENV DK2NU_LIB NO_DEFAULT_PATH )
+cet_find_library( DK2NU_GENIE NAMES dk2nuGenie PATHS ENV DK2NU_LIB NO_DEFAULT_PATH )
+include_directories( $ENV{DK2NU_INC} )
+
+set( SIMB_LIBS
                canvas
                fhiclcpp
+               ${DK2NU_TREE}  # additional data objects assoc w/ MCTruth
                cetlib
-	       cetlib_except
+               cetlib_except
                ${ROOT_EG}
                ${ROOT_CORE}
                ${ROOT_CINT}
@@ -24,7 +30,7 @@ cet_make( LIBRARIES ${SIMB_LIBS}
           NO_DICTIONARY )
 
 art_dictionary( DICTIONARY_LIBRARIES nusimdata_SimulationBase )
- 
+
 install_headers()
 install_fhicl()
 install_source()
