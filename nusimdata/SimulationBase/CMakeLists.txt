@@ -1,6 +1,5 @@
 
 cet_find_library( DK2NU_TREE NAMES dk2nuTree PATHS ENV DK2NU_LIB NO_DEFAULT_PATH )
-cet_find_library( DK2NU_GENIE NAMES dk2nuGenie PATHS ENV DK2NU_LIB NO_DEFAULT_PATH )
 include_directories( $ENV{DK2NU_INC} )
 
 set( SIMB_LIBS
@@ -9,22 +8,23 @@ set( SIMB_LIBS
                ${DK2NU_TREE}  # additional data objects assoc w/ MCTruth
                cetlib
                cetlib_except
-               ${ROOT_EG}
-               ${ROOT_CORE}
-               ${ROOT_CINT}
-               ${ROOT_RIO}
-               ${ROOT_NET}
-               ${ROOT_HIST}
-               ${ROOT_GRAF}
-               ${ROOT_GRAF3D}
-               ${ROOT_GPAD}
-               ${ROOT_TREE}
-               ${ROOT_RINT}
-               ${ROOT_POSTSCRIPT}
-               ${ROOT_MATRIX}
-               ${ROOT_PHYSICS}
-               ${ROOT_MATHCORE}
-               ${ROOT_THREAD} )
+               ${ROOT_BASIC_LIB_LIST}
+#               ${ROOT_EG}
+#               ${ROOT_CORE}
+#               ${ROOT_CINT}
+#               ${ROOT_RIO}
+#               ${ROOT_NET}
+#               ${ROOT_HIST}
+#               ${ROOT_GRAF}
+#               ${ROOT_GRAF3D}
+#               ${ROOT_GPAD}
+#               ${ROOT_TREE}
+#               ${ROOT_RINT}
+#               ${ROOT_POSTSCRIPT}
+#               ${ROOT_MATRIX}
+#               ${ROOT_PHYSICS}
+#               ${ROOT_MATHCORE}
+#               ${ROOT_THREAD} )
 
 cet_make( LIBRARIES ${SIMB_LIBS}
           NO_DICTIONARY )
