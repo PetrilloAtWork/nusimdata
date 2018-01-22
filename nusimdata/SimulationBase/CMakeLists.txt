@@ -1,6 +1,6 @@
 
-cet_find_library( DK2NU_TREE NAMES dk2nuTree PATHS ENV DK2NU_LIB NO_DEFAULT_PATH )
-include_directories( $ENV{DK2NU_INC} )
+cet_find_library( DK2NU_TREE NAMES dk2nuTree PATHS ENV DK2NUDATA_LIB NO_DEFAULT_PATH )
+include_directories( $ENV{DK2NUDATA_INC} )
 
 set( SIMB_LIBS
                canvas
@@ -8,7 +8,7 @@ set( SIMB_LIBS
                ${DK2NU_TREE}  # additional data objects assoc w/ MCTruth
                cetlib
                cetlib_except
-               ${ROOT_BASIC_LIB_LIST}
+               ${ROOT_BASIC_LIB_LIST} )
 #               ${ROOT_EG}
 #               ${ROOT_CORE}
 #               ${ROOT_CINT}
@@ -24,7 +24,7 @@ set( SIMB_LIBS
 #               ${ROOT_MATRIX}
 #               ${ROOT_PHYSICS}
 #               ${ROOT_MATHCORE}
-#               ${ROOT_THREAD} )
+#               ${ROOT_THREAD}
 
 cet_make( LIBRARIES ${SIMB_LIBS}
           NO_DICTIONARY )
