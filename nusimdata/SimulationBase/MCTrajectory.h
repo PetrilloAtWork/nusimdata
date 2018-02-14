@@ -7,7 +7,7 @@
 ////////////////////////////////////////////////////////////////////////
 
 /// This class describes the trajectory of a particle created in the
-/// Monte Carlo simulation.  It generally behaves like a 
+/// Monte Carlo simulation.  It generally behaves like a
 /// vector< pair<TLorentzVector,TLorentzVector> >, where the first
 /// TLorentzVector is the position and the seoond is the momentum,
 /// with the following additions:
@@ -81,8 +81,8 @@ namespace simb {
 #ifndef __GCCXML__
   public:
 
-    MCTrajectory( const TLorentzVector& vertex, 
-		  const TLorentzVector& momentum );
+    MCTrajectory( const TLorentzVector& vertex,
+                  const TLorentzVector& momentum );
 
     /// The accessor methods described above.
     const TLorentzVector& Position( const size_type ) const;
@@ -132,7 +132,7 @@ namespace simb {
     void Add(TLorentzVector const& p,
              TLorentzVector const& m,
              std::string    const& process );
-    
+
     unsigned char        ProcessToKey(std::string   const& process) const;
     std::string          KeyToProcess(unsigned char const& key)     const;
     ProcessMap    const& TrajectoryProcesses()                      const;
@@ -150,44 +150,43 @@ namespace simb {
 #ifndef __GCCXML__
 
 inline double           simb::MCTrajectory::X ( const size_type i ) const { return Position(i).X();      }
-inline double 		      simb::MCTrajectory::Y ( const size_type i ) const { return Position(i).Y();      }
-inline double 		      simb::MCTrajectory::Z ( const size_type i ) const { return Position(i).Z();      }
-inline double 		      simb::MCTrajectory::T ( const size_type i ) const { return Position(i).T();      }
-inline double 		      simb::MCTrajectory::Px( const size_type i ) const { return Momentum(i).Px();     }
-inline double 		      simb::MCTrajectory::Py( const size_type i ) const { return Momentum(i).Py();     }
-inline double 		      simb::MCTrajectory::Pz( const size_type i ) const { return Momentum(i).Pz();     }
-inline double 		      simb::MCTrajectory::E ( const size_type i ) const { return Momentum(i).E();      }
+inline double           simb::MCTrajectory::Y ( const size_type i ) const { return Position(i).Y();      }
+inline double           simb::MCTrajectory::Z ( const size_type i ) const { return Position(i).Z();      }
+inline double           simb::MCTrajectory::T ( const size_type i ) const { return Position(i).T();      }
+inline double           simb::MCTrajectory::Px( const size_type i ) const { return Momentum(i).Px();     }
+inline double           simb::MCTrajectory::Py( const size_type i ) const { return Momentum(i).Py();     }
+inline double           simb::MCTrajectory::Pz( const size_type i ) const { return Momentum(i).Pz();     }
+inline double           simb::MCTrajectory::E ( const size_type i ) const { return Momentum(i).E();      }
 
 inline simb::MCTrajectory::iterator               simb::MCTrajectory::begin()             { return ftrajectory.begin();  }
-inline simb::MCTrajectory::const_iterator         simb::MCTrajectory::begin()  		  const { return ftrajectory.begin();  }
-inline simb::MCTrajectory::iterator               simb::MCTrajectory::end()    		        { return ftrajectory.end();    }
-inline simb::MCTrajectory::const_iterator         simb::MCTrajectory::end()    		  const { return ftrajectory.end();    }
-inline simb::MCTrajectory::reverse_iterator       simb::MCTrajectory::rbegin() 		        { return ftrajectory.rbegin(); }
-inline simb::MCTrajectory::const_reverse_iterator simb::MCTrajectory::rbegin() 		  const { return ftrajectory.rbegin(); }
-inline simb::MCTrajectory::reverse_iterator       simb::MCTrajectory::rend()   		        { return ftrajectory.rend();   }
-inline simb::MCTrajectory::const_reverse_iterator simb::MCTrajectory::rend()   		  const { return ftrajectory.rend();   }
-inline simb::MCTrajectory::size_type              simb::MCTrajectory::size()   		  const { return ftrajectory.size();   }
-inline bool                                       simb::MCTrajectory::empty()  		  const { return ftrajectory.empty();  }
+inline simb::MCTrajectory::const_iterator         simb::MCTrajectory::begin()       const { return ftrajectory.begin();  }
+inline simb::MCTrajectory::iterator               simb::MCTrajectory::end()               { return ftrajectory.end();    }
+inline simb::MCTrajectory::const_iterator         simb::MCTrajectory::end()         const { return ftrajectory.end();    }
+inline simb::MCTrajectory::reverse_iterator       simb::MCTrajectory::rbegin()            { return ftrajectory.rbegin(); }
+inline simb::MCTrajectory::const_reverse_iterator simb::MCTrajectory::rbegin()      const { return ftrajectory.rbegin(); }
+inline simb::MCTrajectory::reverse_iterator       simb::MCTrajectory::rend()              { return ftrajectory.rend();   }
+inline simb::MCTrajectory::const_reverse_iterator simb::MCTrajectory::rend()        const { return ftrajectory.rend();   }
+inline simb::MCTrajectory::size_type              simb::MCTrajectory::size()        const { return ftrajectory.size();   }
+inline bool                                       simb::MCTrajectory::empty()       const { return ftrajectory.empty();  }
 inline void                                       simb::MCTrajectory::clear()             { ftrajectory.clear();         }
-inline void                                       simb::MCTrajectory::swap(simb::MCTrajectory& other) 
-{ ftrajectory.swap( other.ftrajectory ); }
+inline void                                       simb::MCTrajectory::swap(simb::MCTrajectory& other)
+                                                                                { ftrajectory.swap( other.ftrajectory ); }
 
-inline const simb::MCTrajectory::value_type&      simb::MCTrajectory::operator[](const simb::MCTrajectory::size_type i) const 
-{ return ftrajectory[i];}
+inline const simb::MCTrajectory::value_type&      simb::MCTrajectory::operator[](const simb::MCTrajectory::size_type i) const
+                                                                                                { return ftrajectory[i]; }
 
-inline const simb::MCTrajectory::value_type&      simb::MCTrajectory::at(const simb::MCTrajectory::size_type i)         const 
-{ return ftrajectory.at(i); }
+inline const simb::MCTrajectory::value_type&      simb::MCTrajectory::at(const simb::MCTrajectory::size_type i)         const
+                                                                                             { return ftrajectory.at(i); }
 
-inline void                                       simb::MCTrajectory::push_back(const simb::MCTrajectory::value_type& v )     
-{ ftrajectory.push_back(v); }
+inline void                                       simb::MCTrajectory::push_back(const simb::MCTrajectory::value_type& v )
+                                                                                             { ftrajectory.push_back(v); }
 
-inline void                                       simb::MCTrajectory::push_back(const TLorentzVector& p, 
-										const TLorentzVector& m ) 
-{ ftrajectory.push_back( simb::MCTrajectory::value_type(p,m) ); }
+inline void                                       simb::MCTrajectory::push_back(const TLorentzVector& p,
+                                                                                const TLorentzVector& m )
+                                                         { ftrajectory.push_back( simb::MCTrajectory::value_type(p,m) ); }
 
-inline void                                       simb::MCTrajectory::Add(const TLorentzVector& p, 
-									  const TLorentzVector& m )       
-{ push_back(p,m);           }
+inline void                                       simb::MCTrajectory::Add(const TLorentzVector& p,
+                                                                          const TLorentzVector& m )    { push_back(p,m); }
 
 inline simb::MCTrajectory::ProcessMap    const&   simb::MCTrajectory::TrajectoryProcesses() const { return fTrajectoryProcess; }
 
