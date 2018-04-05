@@ -10,38 +10,42 @@
 
 <lcgdict>
 
- <class name="std::set<int>"                                                      />  
+ <class name="std::set<int>"                                                      />
  <class name="std::pair<size_t, unsigned char>"                                   />
  <class name="std::vector< std::pair<size_t, unsigned char> >"                    />
- <class name="simb::MCParticle"    ClassVersion="18"                  	     	   >
+
+ <class name="simb::MCParticle"    ClassVersion="18"                               >
   <version ClassVersion="18" checksum="275984218"/>
  </class>
- <class name="simb::MCTrajectory"  ClassVersion="12"                  	     	   >
+ <class name="simb::MCTrajectory"  ClassVersion="12"                               >
   <version ClassVersion="12" checksum="749513453"/>
   <version ClassVersion="11" checksum="1656038010"/>
  </class>
- <class name="simb::MCNeutrino"    ClassVersion="10"                  	     	   >
+ <class name="simb::MCNeutrino"    ClassVersion="10"                               >
   <version ClassVersion="10" checksum="762249296"/>
  </class>
- <class name="simb::MCFlux"        ClassVersion="11"                  	     	   >
+ <class name="simb::MCFlux"        ClassVersion="11"                               >
   <version ClassVersion="11" checksum="244361690"/>
   <version ClassVersion="10" checksum="2054318849"/>
  </class>
- <class name="simb::MCTruth"       ClassVersion="11"                  	     	   >
+ <class name="simb::MCTruth"       ClassVersion="11"                               >
   <version ClassVersion="11" checksum="2888350881"/>
   <version ClassVersion="10" checksum="3274174269"/>
  </class>
- <class name="simb::GTruth"        ClassVersion="10"                         	   >
+ <class name="simb::GTruth"        ClassVersion="10"                               >
   <version ClassVersion="10" checksum="1491363396"/>
  </class>
+
  <enum  name="simb::_ev_origin"                                                    />
  <enum  name="simb::flux_code_"                                                    />
  <enum  name="simb::curr_type_"                                                    />
  <enum  name="simb::int_type_"                                                     />
- <class name="art::Ptr<simb::MCTruth>"       				     	   />
- <class name="art::Ptr<simb::MCFlux>"       				     	   />
- <class name="art::Ptr<simb::GTruth>"                                        	   />
- <class name="art::Ptr<simb::MCParticle>"   			             	   />
+
+ <class name="art::Ptr<simb::MCTruth>"                                             />
+ <class name="art::Ptr<simb::MCFlux>"                                              />
+ <class name="art::Ptr<simb::GTruth>"                                              />
+ <class name="art::Ptr<simb::MCParticle>"                                          />
+
  <class name="std::pair< art::Ptr<simb::MCParticle>, art::Ptr<simb::MCTruth>    >" />
  <class name="std::pair< art::Ptr<simb::MCTruth>,    art::Ptr<simb::MCParticle> >" />
  <class name="std::pair< art::Ptr<simb::MCFlux>,     art::Ptr<simb::MCTruth>    >" />
@@ -49,30 +53,60 @@
  <class name="std::pair< art::Ptr<simb::GTruth>,     art::Ptr<simb::MCTruth>    >" />
  <class name="std::pair< art::Ptr<simb::MCTruth>,    art::Ptr<simb::GTruth>     >" />
  <class name="std::pair<TLorentzVector, TLorentzVector>"                           />
- <class name="std::vector< std::pair<TLorentzVector, TLorentzVector> >"	           />
- <class name="std::vector<simb::MCParticle>"                          	     	   />
- <class name="std::vector<simb::MCTrajectory>"                        	     	   />
- <class name="std::vector<simb::MCNeutrino>"                          	     	   />
- <class name="std::vector<simb::MCFlux>"                              	     	   />
- <class name="std::vector<simb::MCTruth>"                             	     	   />
- <class name="std::vector<simb::GTruth>"                                     	   />
+ <class name="std::vector< std::pair<TLorentzVector, TLorentzVector> >"            />
+
+ <class name="std::vector<simb::MCParticle>"                                       />
+ <class name="std::vector<simb::MCTrajectory>"                                     />
+ <class name="std::vector<simb::MCNeutrino>"                                       />
+ <class name="std::vector<simb::MCFlux>"                                           />
+ <class name="std::vector<simb::MCTruth>"                                          />
+ <class name="std::vector<simb::GTruth>"                                           />
+
  <class name="art::Assns<simb::MCFlux,     simb::MCTruth,    void>"                />
  <class name="art::Assns<simb::MCTruth,    simb::MCFlux,     void>"                />
  <class name="art::Assns<simb::GTruth,     simb::MCTruth,    void>"                />
  <class name="art::Assns<simb::MCTruth,    simb::GTruth,     void>"                />
  <class name="art::Assns<simb::MCParticle, simb::MCTruth,    void>"                />
  <class name="art::Assns<simb::MCTruth,    simb::MCParticle, void>"                />
- <class name="art::Wrapper< std::vector<simb::MCParticle>   >"        	           />
- <class name="art::Wrapper< std::vector<simb::MCTrajectory> >"        	     	   />
- <class name="art::Wrapper< std::vector<simb::MCNeutrino>   >"        	     	   />
- <class name="art::Wrapper< std::vector<simb::MCTruth>      >"        	     	   />
- <class name="art::Wrapper< std::vector<simb::MCFlux>       >"        	     	   />
- <class name="art::Wrapper< std::vector<simb::GTruth>       >"               	   />
+
+ <class name="art::Wrapper< std::vector<simb::MCParticle>   >"                     />
+ <class name="art::Wrapper< std::vector<simb::MCTrajectory> >"                     />
+ <class name="art::Wrapper< std::vector<simb::MCNeutrino>   >"                     />
+ <class name="art::Wrapper< std::vector<simb::MCTruth>      >"                     />
+ <class name="art::Wrapper< std::vector<simb::MCFlux>       >"                     />
+ <class name="art::Wrapper< std::vector<simb::GTruth>       >"                     />
+
  <class name="art::Wrapper< art::Assns<simb::MCFlux,     simb::MCTruth,    void> >"/>
  <class name="art::Wrapper< art::Assns<simb::MCTruth,    simb::MCFlux,     void> >"/>
  <class name="art::Wrapper< art::Assns<simb::GTruth,     simb::MCTruth,    void> >"/>
  <class name="art::Wrapper< art::Assns<simb::MCTruth,    simb::GTruth,     void> >"/>
  <class name="art::Wrapper< art::Assns<simb::MCParticle, simb::MCTruth,    void> >"/>
  <class name="art::Wrapper< art::Assns<simb::MCTruth,    simb::MCParticle, void> >"/>
+
+ <!-- art entangled bsim::Dk2Nu and bsim::NuChoice -->
+
+ <!-- dont make conflicting dictionary for base, just the things to wrapper it -->
+ <class name="std::vector<bsim::Dk2Nu>"                                           />
+ <class name="art::Ptr<bsim::Dk2Nu>"                                              />
+ <class name="art::Wrapper< std::vector<bsim::Dk2Nu> >"                           />
+ <!-- and association stuff -->
+ <class name="std::pair< art::Ptr<simb::MCTruth>,    art::Ptr<bsim::Dk2Nu>     >" />
+ <class name="std::pair< art::Ptr<bsim::Dk2Nu>,      art::Ptr<simb::MCTruth>   >" />
+ <class name="art::Assns<simb::MCTruth,    bsim::Dk2Nu,      void>"               />
+ <class name="art::Assns<bsim::Dk2Nu,      simb::MCTruth,    void>"               />
+ <class name="art::Wrapper< art::Assns<simb::MCTruth, bsim::Dk2Nu,   void> >"     />
+ <class name="art::Wrapper< art::Assns<bsim::Dk2Nu,   simb::MCTruth, void> >"     />
+
+ <!-- dont make conflicting dictionary for base, just the things to wrapper it -->
+ <class name="std::vector<bsim::NuChoice>"                                        />
+ <class name="art::Ptr<bsim::NuChoice>"                                           />
+ <class name="art::Wrapper< std::vector<bsim::NuChoice> >"                        />
+ <!-- and association stuff -->
+ <class name="std::pair< art::Ptr<simb::MCTruth>,    art::Ptr<bsim::NuChoice>  >" />
+ <class name="std::pair< art::Ptr<bsim::NuChoice>,   art::Ptr<simb::MCTruth>   >" />
+ <class name="art::Assns<simb::MCTruth,    bsim::NuChoice,   void>"               />
+ <class name="art::Assns<bsim::NuChoice,   simb::MCTruth,    void>"               />
+ <class name="art::Wrapper< art::Assns<simb::MCTruth,  bsim::NuChoice, void> >"   />
+ <class name="art::Wrapper< art::Assns<bsim::NuChoice, simb::MCTruth,  void> >"   />
 
 </lcgdict>
