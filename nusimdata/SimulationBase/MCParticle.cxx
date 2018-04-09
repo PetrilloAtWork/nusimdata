@@ -99,10 +99,6 @@ namespace simb {
     for(int i=0; i<p.NumberDaughters(); i++)
       fdaughters.insert(p.Daughter(i)+offset);
   }
-  //------------------------------------------------------------
-  MCParticle::~MCParticle() 
-  {
-  }
 
 
   //----------------------------------------------------------------------------
