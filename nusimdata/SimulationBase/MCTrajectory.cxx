@@ -5,7 +5,7 @@
 /// \author  seligman@nevis.columbia.edu
 ////////////////////////////////////////////////////////////////////////
 
-#include "cetlib/exception.h"
+#include "cetlib_except/exception.h"
 
 #include "nusimdata/SimulationBase/MCTrajectory.h"
 
