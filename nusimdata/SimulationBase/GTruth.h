@@ -4,13 +4,14 @@
 /// \author  nathan.mayer@tufts.edu
 ////////////////////////////////////////////////////////////////////////
 
-/// This class stores/retrieves the additional information needed 
+/// This class stores/retrieves the additional information needed
 /// (and not in MCTruth) to recreate a genie::EventRecord
 /// for genie based event reweighting.
 
 #ifndef SIMB_GTRUTH_H
 #define SIMB_GTRUTH_H
 
+#include <iostream>
 #include <TLorentzVector.h>
 
 namespace simb {
@@ -63,6 +64,9 @@ namespace simb {
 
     // Flag for values that might not have been set
     static constexpr double kUndefinedValue = -99999;
+
+  public:
+    friend std::ostream& operator<< (std::ostream& output, const simb::GTruth &gtruth);
 
   };
 
