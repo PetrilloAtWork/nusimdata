@@ -15,7 +15,7 @@
 namespace simb{
 
   //......................................................................
-  MCFlux::MCFlux() 
+  MCFlux::MCFlux()
     : frun(-999)
     , fevtno(-999)
     , fndxdz(-999.)
@@ -154,8 +154,8 @@ namespace simb{
     fbeamz    = -999.;
     fbeampx   = -999.;
     fbeampy   = -999.;
-    fbeampz   = -999.;    
-    
+    fbeampz   = -999.;
+
     fgenx     = -999.;
     fgeny     = -999.;
     fgenz     = -999.;
@@ -172,8 +172,8 @@ namespace simb{
   /// @param pdgcode : PDG code of neutrino flavor
   /// @param which   : Which flux (generated, plus focus, minus focus)
   /// @returns       : #neutrinos/cm^2/10^20 POT
-  /// 
-  double MCFlux::Flux(int pdgcode, int which) const 
+  ///
+  double MCFlux::Flux(int pdgcode, int which) const
   {
     const float* flux = 0;
     if (which==kGenerator)      flux = fFluxGen;
@@ -202,8 +202,8 @@ namespace simb{
   //......................................................................
 
   void MCFlux::SetFluxNeg(double nue,  double nuebar,
-			  double numu, double numubar,
-			  double nutau,double nutaubar)
+                          double numu, double numubar,
+                          double nutau,double nutaubar)
   {
     fFluxNeg[0] = nue;   fFluxNeg[1] = nuebar;
     fFluxNeg[2] = numu;  fFluxNeg[3] = numubar;
@@ -219,19 +219,19 @@ namespace simb{
     fFluxGen[2] = numu;  fFluxGen[3] = numubar;
     fFluxGen[4] = nutau; fFluxGen[5] = nutaubar;
   }
-  
+
   //......................................................................
   void MCFlux::ReDecay(double &newE, double &newW, double x, double y, double z)
   {
     //note x,y,z are assumed to be in cm
     //x,y,z are also assumed to be in the beam reference frame
-    //i.e. 0,0,0 are at the target, 
+    //i.e. 0,0,0 are at the target,
     //z points along the beamline
     //right handed coords, x points to the left if you are looking down the beam
 
-    //these constants should probably be defined elsewhere.  
+    //these constants should probably be defined elsewhere.
     //I'll put them here until I figure out where they should properly go
-    const double pimass=.13957; 
+    const double pimass=.13957;
     const double mumass=0.105658389;
     const double kmass=0.49368;
     const double k0mass=0.49767;
@@ -260,19 +260,19 @@ namespace simb{
     double Eplab=sqrt(1.*fpdpx*fpdpx+1.*fpdpy*fpdpy+1.*fpdpz*fpdpz+1.*mass*mass);
     double gamma = Eplab/mass;
     double beta = sqrt((gamma*gamma-1)/(gamma*gamma));
-  
-    //compute components of vector between decay point 
+
+    //compute components of vector between decay point
     //and the point you're aiming at
     double rnx=1.*(x-fvx);
     double rny=1.*(y-fvy);
     double rnz=1.*(z-fvz);
     double rn=sqrt(rnx*rnx+rny*rny+rnz*rnz);
-  
-    //compute angle between parent momentum 
+
+    //compute angle between parent momentum
     //and where we want the neutrino to go
     double rndotp = (rnx*fpdpx+rny*fpdpy+rnz*fpdpz);
     double costhetan = rndotp/(rn*p);
-  
+
     //do some checking of the calculation
     if(std::abs(costhetan)>1){
       if(costhetan>0){
@@ -286,7 +286,7 @@ namespace simb{
     //now compute the weights
     double MN=1.;
     if(p>0){//if it didn't decay at rest
-      //boost 
+      //boost
       MN=1./(gamma*(1-beta*costhetan));
     }
 
@@ -297,7 +297,7 @@ namespace simb{
     //solid angle
     // small angle approximation: // double san = 10000./(4*rn*rn);
     // Alex Radovic's removal of small angle approximation
-    const double kRDET = 100.; 
+    const double kRDET = 100.;
     double san = (1.0-cos(atan( kRDET / rn )))/2.0;
 
     //  std::cout<<"san "<<san<<" fvz-z "<<fvz-z<<std::endl;
@@ -317,37 +317,37 @@ namespace simb{
       betav[0] = fpdpx/Eplab;
       betav[1] = fpdpy/Eplab;
       betav[2] = fpdpz/Eplab;
-  
+
       P_nun[0] = rnx*newE/rn;
       P_nun[1] = rny*newE/rn;
       P_nun[2] = rnz*newE/rn;
-  
+
       partialn =gamma*(betav[0]*P_nun[0]+betav[1]*P_nun[1]+betav[2]*P_nun[2]);
       partialn = newE - partialn /(gamma+1.);
-    
+
       P_dcm_nun[0] = P_nun[0] - betav[0]*gamma*partialn;
       P_dcm_nun[1] = P_nun[1] - betav[1]*gamma*partialn;
       P_dcm_nun[2] = P_nun[2] - betav[2]*gamma*partialn;
       P_dcm_nun[3] = sqrt(pow(P_dcm_nun[0],2)
-			  +pow(P_dcm_nun[1],2)
-			  +pow(P_dcm_nun[2],2));
-    
+                          +pow(P_dcm_nun[1],2)
+                          +pow(P_dcm_nun[2],2));
 
-      gamma = fppenergy/mass;  
+
+      gamma = fppenergy/mass;
       betav[0] = fppdxdz*fpppz/fppenergy;
       betav[1] = fppdydz*fpppz/fppenergy;
       betav[2] = fpppz/fppenergy;
 
       partial = gamma*(betav[0]*fmuparpx +
-		       +betav[1]*fmuparpy + betav[2]*fmuparpz);
+                       +betav[1]*fmuparpy + betav[2]*fmuparpz);
       partial = fmupare-partial/(gamma+1.);
       P_pcm_mp[0] = fmuparpx - betav[0]*gamma*partial;
       P_pcm_mp[1] = fmuparpy - betav[1]*gamma*partial;
       P_pcm_mp[2] = fmuparpz - betav[2]*gamma*partial;
       P_pcm_mp[3] = sqrt(pow(P_pcm_mp[0],2)+
-			 pow(P_pcm_mp[1],2)+
-			 pow(P_pcm_mp[2],2));
-  
+                         pow(P_pcm_mp[1],2)+
+                         pow(P_pcm_mp[2],2));
+
       //calc new  decay angle w.r.t. (anti)spin direction
       double costhn  = 0.;
       if(P_dcm_nun[3]!=0&&P_pcm_mp[3]!=0){
@@ -355,7 +355,7 @@ namespace simb{
                   P_dcm_nun[1]*P_pcm_mp[1]+
                   P_dcm_nun[2]*P_pcm_mp[2])/(P_dcm_nun[3]*P_pcm_mp[3]);
       }
-    
+
       if(std::abs(costhn)>1){
         if(costhn>0){
           costhn = 1;
@@ -364,7 +364,7 @@ namespace simb{
           costhn=-1;
         }
       }
-    
+
       double wt_ration;
       if(fntype==14||fntype==-14){
         double xnu = 2.*fnecm/mass;
@@ -373,7 +373,7 @@ namespace simb{
       else{
         wt_ration=1.-costhn;
       }
-  
+
       newW*=wt_ration;
     }
 
@@ -383,7 +383,7 @@ namespace simb{
   //......................................................................
   std::ostream&  operator<< (std::ostream& output, const simb::MCFlux &mcflux)
   {
-    output 
+    output
       << "MCFlux:" << std::endl
       //  123456789012
       << "  flux job  " << std::setw(11) << mcflux.frun      << " "
@@ -403,6 +403,8 @@ namespace simb{
       << "  tpxyz     " << std::setw(11) << mcflux.ftpx      << " "
       <<                   std::setw(11) << mcflux.ftpy      << " "
       <<                   std::setw(11) << mcflux.ftpz      << std::endl
+      << "  ppd[xy]dz " << std::setw(11) << mcflux.fppdxdz   << " "
+      <<                   std::setw(11) << mcflux.fppdydz   << std::endl
       << "  pppxyz    " << std::setw(11) << mcflux.fppdxdz*mcflux.fpppz << " "
       <<                   std::setw(11) << mcflux.fppdydz*mcflux.fpppz << " "
       <<                   std::setw(11) << mcflux.fpppz     << std::endl
