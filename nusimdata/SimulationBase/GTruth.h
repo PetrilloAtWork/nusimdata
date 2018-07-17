@@ -24,6 +24,7 @@ namespace simb {
     // Interactions info
     int            fGint;         ///< interaction code
     int            fGscatter;     ///< neutrino scattering code
+    int            fGPhaseSpace;  ///< phase space system of DiffXSec
 
     // Event info
     double         fweight;       ///< event interaction weight (genie internal)

@@ -32,7 +32,8 @@
   <version ClassVersion="11" checksum="2888350881"/>
   <version ClassVersion="10" checksum="3274174269"/>
  </class>
- <class name="simb::GTruth"        ClassVersion="10"                               >
+ <class name="simb::GTruth"        ClassVersion="11"                               >
+  <version ClassVersion="11" checksum="2026106799"/>
   <version ClassVersion="10" checksum="1491363396"/>
  </class>
 
