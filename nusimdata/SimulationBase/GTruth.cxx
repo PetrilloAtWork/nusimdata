@@ -21,6 +21,7 @@ namespace simb {
   GTruth::GTruth()
     : fGint(-1)
     , fGscatter(-1)
+    , fGPhaseSpace(-1)
     , fweight(0)
     , fprobability(0)
     , fXsec(0)
@@ -68,7 +69,8 @@ namespace simb {
       << "GTruth:" << std::endl
       //  123456789012
       << "  Gint      " << std::setw(11) << gtruth.fGint         << " "
-      << "  Gscatter  " << std::setw(11) << gtruth.fGscatter     << std::endl
+      << "  Gscatter  " << std::setw(11) << gtruth.fGscatter     << " "
+      << "  GPhaseSpace " << std::setw(9) << gtruth.fGPhaseSpace << std::endl
       << "  weight    " << std::setw(11) << gtruth.fweight       << " "
       << "  prob      " << std::setw(11) << gtruth.fprobability  << std::endl
       << "  Xsec      " << std::setw(11) << gtruth.fXsec         << " "
