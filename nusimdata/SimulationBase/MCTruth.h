@@ -60,7 +60,6 @@ namespace simb {
                                  double qsqr);                      
  
     friend std::ostream&  operator<< (std::ostream& o, simb::MCTruth const& a);
-
   };
 }
 

@@ -198,7 +198,6 @@ namespace simb {
     bool operator<( const simb::MCParticle& other ) const;
 
     friend std::ostream& operator<< ( std::ostream& output, const simb::MCParticle& );
-
   };
 
 } // namespace simb

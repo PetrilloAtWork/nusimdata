@@ -65,7 +65,6 @@ namespace simb {
     double                   Pt()              const; ///< transverse momentum of interaction, in GeV/c
     double                   Theta()           const; ///< angle between incoming and outgoing leptons, in radians
     friend std::ostream&  operator<< (std::ostream& output, const simb::MCNeutrino &mcnu);
-
   };
 }
 

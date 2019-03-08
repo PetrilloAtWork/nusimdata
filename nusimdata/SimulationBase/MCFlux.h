@@ -131,7 +131,6 @@ namespace simb{
                  double z);
 
     friend std::ostream& operator<< (std::ostream& output, const simb::MCFlux &mcflux);
-
   };
 }
 
