@@ -78,7 +78,6 @@ namespace simb {
     ProcessMap fTrajectoryProcess; ///< map of the scattering process to index
                                    ///< in ftrajectory for a given point
 
-#ifndef __GCCXML__
   public:
 
     MCTrajectory( const TLorentzVector& vertex,
@@ -142,12 +141,9 @@ namespace simb {
     /// points.
     void Sparsify(double margin = .1);
 
-#endif
   };
 
 } // namespace simb
-
-#ifndef __GCCXML__
 
 inline double           simb::MCTrajectory::X ( const size_type i ) const { return Position(i).X();      }
 inline double           simb::MCTrajectory::Y ( const size_type i ) const { return Position(i).Y();      }
@@ -189,7 +185,5 @@ inline void                                       simb::MCTrajectory::Add(const 
                                                                           const TLorentzVector& m )    { push_back(p,m); }
 
 inline simb::MCTrajectory::ProcessMap    const&   simb::MCTrajectory::TrajectoryProcesses() const { return fTrajectoryProcess; }
-
-#endif
 
 #endif // SIMB_MCTRAJECTORY_H

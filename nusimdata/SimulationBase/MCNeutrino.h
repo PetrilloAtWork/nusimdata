@@ -35,7 +35,6 @@ namespace simb {
     double           fY;               ///< Inelasticity y=1-(E_lepton/E_neutrino), unitless
     double           fQSqr;            ///< Momentum transfer Q^2, in GeV^2
 
-#ifndef __GCCXML__
   public:
 
     MCNeutrino(simb::MCParticle &nu,
@@ -66,12 +65,9 @@ namespace simb {
     double                   Pt()              const; ///< transverse momentum of interaction, in GeV/c
     double                   Theta()           const; ///< angle between incoming and outgoing leptons, in radians
     friend std::ostream&  operator<< (std::ostream& output, const simb::MCNeutrino &mcnu);
-#endif
-
   };
 }
 
-#ifndef __GCCXML__
 namespace simb{
   /// Neutrino interaction categories
   enum curr_type_{
@@ -159,7 +155,6 @@ inline        double            simb::MCNeutrino::W()               const { retu
 inline        double            simb::MCNeutrino::X()               const { return fX;               }
 inline        double            simb::MCNeutrino::Y()               const { return fY;               }
 inline        double            simb::MCNeutrino::QSqr()            const { return fQSqr;            }
-#endif
 
 #endif //SIMB_MCNEUTRINO_H
 ////////////////////////////////////////////////////////////////////////

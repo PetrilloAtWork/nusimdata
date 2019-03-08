@@ -47,7 +47,6 @@ namespace simb {
                                             ///< genie::EventRecord for event reweighting
     int                     frescatter;     ///< rescatter code
 
-#ifndef __GCCXML__
   public:
 
     // Standard constructor.  If the mass is not supplied in the
@@ -199,13 +198,9 @@ namespace simb {
     bool operator<( const simb::MCParticle& other ) const;
 
     friend std::ostream& operator<< ( std::ostream& output, const simb::MCParticle& );
-
-#endif
   };
 
 } // namespace simb
-
-#ifndef __GCCXML__
 
 #include <functional> // so we can redefine less<> below
 #include <math.h>
@@ -297,6 +292,5 @@ namespace std {
     }
   };
 } // std
-#endif
 
 #endif // SIMB_MCPARTICLE_H
