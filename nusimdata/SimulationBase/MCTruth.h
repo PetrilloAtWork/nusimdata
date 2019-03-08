@@ -46,7 +46,8 @@ namespace simb {
     const simb::MCNeutrino& GetNeutrino()       const;
     bool                    NeutrinoSet()       const;
     
-    void             Add(simb::MCParticle& part);           
+    void             Add(simb::MCParticle const& part);
+    void             Add(simb::MCParticle&& part);
     void             SetOrigin(simb::Origin_t origin);
     void             SetNeutrino(int CCNC, 
                                  int mode,
@@ -69,7 +70,8 @@ inline const simb::MCParticle& simb::MCTruth::GetParticle(int i)  const { return
 inline const simb::MCNeutrino& simb::MCTruth::GetNeutrino()       const { return fMCNeutrino;           }
 inline bool                    simb::MCTruth::NeutrinoSet()       const { return fNeutrinoSet;          }
 
-inline void                    simb::MCTruth::Add(simb::MCParticle& part)      { fPartList.push_back(part);    }
+inline void                    simb::MCTruth::Add(simb::MCParticle const& part) { fPartList.push_back(part); }
+inline void                    simb::MCTruth::Add(simb::MCParticle&& part)      { fPartList.push_back(std::move(part)); }
 inline void                    simb::MCTruth::SetOrigin(simb::Origin_t origin) { fOrigin = origin;             }
 
 #endif //SIMB_MCTRUTH_H
