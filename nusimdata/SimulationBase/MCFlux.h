@@ -109,8 +109,6 @@ namespace simb{
     float fFluxNeg[6]; ///< Fluxes as aboce, for negative horn focus
     float fFluxGen[6]; ///< Fluxes as above, assumed by generator
 
-#ifndef __GCCXML__
-
   public:
     
     void Reset();
@@ -133,9 +131,6 @@ namespace simb{
                  double z);
 
     friend std::ostream& operator<< (std::ostream& output, const simb::MCFlux &mcflux);
-    
-#endif
-
   };
 }
 
