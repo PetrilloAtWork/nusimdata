@@ -38,7 +38,6 @@ namespace simb {
     simb::Origin_t                fOrigin;      ///< origin for this event
     bool                          fNeutrinoSet; ///< flag for whether the neutrino information has been set
 
-#ifndef __GCCXML__
   public:
 
     simb::Origin_t          Origin()            const;
@@ -47,7 +46,7 @@ namespace simb {
     const simb::MCNeutrino& GetNeutrino()       const;
     bool                    NeutrinoSet()       const;
     
-    void             Add(simb::MCParticle& part);           
+    void             Add(simb::MCParticle& part);
     void             SetOrigin(simb::Origin_t origin);
     void             SetNeutrino(int CCNC, 
                                  int mode,
@@ -61,12 +60,9 @@ namespace simb {
                                  double qsqr);                      
  
     friend std::ostream&  operator<< (std::ostream& o, simb::MCTruth const& a);
-#endif
 
   };
 }
-
-#ifndef __GCCXML__
 
 inline simb::Origin_t          simb::MCTruth::Origin()            const { return fOrigin;               }
 inline int                     simb::MCTruth::NParticles()        const { return (int)fPartList.size(); }
@@ -76,8 +72,6 @@ inline bool                    simb::MCTruth::NeutrinoSet()       const { return
 
 inline void                    simb::MCTruth::Add(simb::MCParticle& part)      { fPartList.push_back(part);    }
 inline void                    simb::MCTruth::SetOrigin(simb::Origin_t origin) { fOrigin = origin;             }
-
-#endif
 
 #endif //SIMB_MCTRUTH_H
 ////////////////////////////////////////////////////////////////////////
