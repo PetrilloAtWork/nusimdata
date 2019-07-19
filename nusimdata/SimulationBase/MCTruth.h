@@ -9,6 +9,7 @@
 #define SIMB_MCTRUTH_H
 
 #include <vector>
+#include "nusimdata/SimulationBase/MCGeneratorInfo.h"
 #include "nusimdata/SimulationBase/MCNeutrino.h"
 
 namespace simb {
@@ -36,6 +37,7 @@ namespace simb {
     std::vector<simb::MCParticle> fPartList;    ///< list of particles in this event
     simb::MCNeutrino              fMCNeutrino;  ///< reference to neutrino info - null if not a neutrino
     simb::Origin_t                fOrigin;      ///< origin for this event
+    simb::MCGeneratorInfo         fGenInfo;     ///< information about the generator that produced this event
     bool                          fNeutrinoSet; ///< flag for whether the neutrino information has been set
 
   public:
@@ -48,6 +50,9 @@ namespace simb {
     
     void             Add(simb::MCParticle const& part);
     void             Add(simb::MCParticle&& part);
+    void             SetGeneratorInfo(simb::Generator_t generator,
+                                      const std::string & genVersion,
+                                      const std::unordered_map<std::string, std::string> genConfig);
     void             SetOrigin(simb::Origin_t origin);
     void             SetNeutrino(int CCNC, 
                                  int mode,
@@ -73,6 +78,13 @@ inline bool                    simb::MCTruth::NeutrinoSet()       const { return
 inline void                    simb::MCTruth::Add(simb::MCParticle const& part) { fPartList.push_back(part); }
 inline void                    simb::MCTruth::Add(simb::MCParticle&& part)      { fPartList.push_back(std::move(part)); }
 inline void                    simb::MCTruth::SetOrigin(simb::Origin_t origin) { fOrigin = origin;             }
+
+inline void simb::MCTruth::SetGeneratorInfo(simb::Generator_t generator,
+                                            const std::string &genVersion,
+                                            const std::unordered_map <string, string> genConfig)
+{
+  fGenInfo = simb::MCGeneratorInfo(generator, genVersion, genConfig);
+}
 
 #endif //SIMB_MCTRUTH_H
 ////////////////////////////////////////////////////////////////////////
