@@ -29,14 +29,14 @@ namespace simb
 
   struct MCGeneratorInfo
   {
-    simb::Generator_t                            fGenerator;        ///< event generator that generated this event
-    std::string                                  fGeneratorVersion  ///< event generator version
-    std::unordered_map<std::string, std::string> fGeneratorConfig   ///< free-form field that can be used to keep track of generator configuration (e.g. GENIE tune)
+    simb::Generator_t                            generator;        ///< event generator that generated this event
+    std::string                                  generatorVersion  ///< event generator version
+    std::unordered_map<std::string, std::string> generatorConfig   ///< free-form field that can be used to keep track of generator configuration (e.g. GENIE tune)
 
     MCGeneratorInfo(Generator_t gen = Generator_t::kUnknown,
                     const std::string ver = "",
                     const std::unordered_map<std::string, std::string> config = {})
-      : fGenerator(gen), fGeneratorVersion(ver), fGeneratorConfig(config)
+      : generator(gen), generatorVersion(ver), generatorConfig(config)
     {}
   };
 }
