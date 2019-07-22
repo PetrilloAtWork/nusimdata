@@ -17,10 +17,12 @@ namespace simb
   /// generator used to produce event, if applicable
   typedef enum _ev_generator{
     kUnknown,
+    kCORSIKA,
     kCRY,
     kGEANT,
     kGENIE,
     kGIBUU,
+    kMARLEY,
     kNEUT,
     kNuWro,
   } Generator_t;
