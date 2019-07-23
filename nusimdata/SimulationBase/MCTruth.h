@@ -8,6 +8,7 @@
 #ifndef SIMB_MCTRUTH_H
 #define SIMB_MCTRUTH_H
 
+#include <string>
 #include <vector>
 #include "nusimdata/SimulationBase/MCGeneratorInfo.h"
 #include "nusimdata/SimulationBase/MCNeutrino.h"
@@ -81,7 +82,7 @@ inline void                    simb::MCTruth::SetOrigin(simb::Origin_t origin) {
 
 inline void simb::MCTruth::SetGeneratorInfo(simb::Generator_t generator,
                                             const std::string &genVersion,
-                                            const std::unordered_map <string, string> genConfig)
+                                            const std::unordered_map<std::string, std::string> genConfig)
 {
   fGenInfo = simb::MCGeneratorInfo(generator, genVersion, genConfig);
 }
