@@ -15,16 +15,18 @@ namespace simb
 {
 
   /// generator used to produce event, if applicable
-  typedef enum class _ev_generator{
+  typedef enum class _ev_generator
+  {
     kUnknown,
-    kCORSIKA,
-    kCRY,
-    kGEANT,
     kGENIE,
+    kCRY,
     kGIBUU,
+    kNuWro,
     kMARLEY,
     kNEUT,
-    kNuWro,
+    kCORSIKA,
+    kGEANT,
+    kNumGenerators, //  this should always be the last entry
   } Generator_t;
 
   struct MCGeneratorInfo
