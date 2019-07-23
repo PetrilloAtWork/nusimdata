@@ -52,7 +52,7 @@ namespace simb {
     void             Add(simb::MCParticle& part);
     void             SetGeneratorInfo(simb::Generator_t generator,
                                       const std::string & genVersion,
-	                                  const std::unordered_map<std::string, std::string> genConfig);
+                                      const std::unordered_map<std::string, std::string>& genConfig);
     void             SetOrigin(simb::Origin_t origin);
     void             SetNeutrino(int CCNC, 
                                  int mode,
@@ -80,7 +80,7 @@ inline void                    simb::MCTruth::SetOrigin(simb::Origin_t origin) {
 
 inline void simb::MCTruth::SetGeneratorInfo(simb::Generator_t generator,
                                             const std::string &genVersion,
-                                            const std::unordered_map<std::string, std::string> genConfig)
+                                            const std::unordered_map<std::string, std::string>& genConfig)
 {
   fGenInfo = simb::MCGeneratorInfo(generator, genVersion, genConfig);
 }
