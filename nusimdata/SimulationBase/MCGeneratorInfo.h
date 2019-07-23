@@ -15,7 +15,7 @@ namespace simb
 {
 
   /// generator used to produce event, if applicable
-  typedef enum _ev_generator{
+  typedef enum class _ev_generator{
     kUnknown,
     kCORSIKA,
     kCRY,
@@ -29,9 +29,9 @@ namespace simb
 
   struct MCGeneratorInfo
   {
-    simb::Generator_t                            generator;        ///< event generator that generated this event
-    std::string                                  generatorVersion  ///< event generator version
-    std::unordered_map<std::string, std::string> generatorConfig   ///< free-form field that can be used to keep track of generator configuration (e.g. GENIE tune)
+    simb::Generator_t                            generator;         ///< event generator that generated this event
+    std::string                                  generatorVersion;  ///< event generator version
+    std::unordered_map<std::string, std::string> generatorConfig;   ///< free-form field that can be used to keep track of generator configuration (e.g. GENIE tune)
 
     MCGeneratorInfo(Generator_t gen = Generator_t::kUnknown,
                     const std::string ver = "",
