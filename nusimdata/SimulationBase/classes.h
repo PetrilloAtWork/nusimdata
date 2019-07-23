@@ -11,6 +11,7 @@
 #include "canvas/Persistency/Common/Assns.h"
 
 // nusimdata includes
+#include "nusimdata/SimulationBase/MCGeneratorInfo.h"
 #include "nusimdata/SimulationBase/MCTruth.h"
 #include "nusimdata/SimulationBase/MCTrajectory.h"
 #include "nusimdata/SimulationBase/MCParticle.h"
