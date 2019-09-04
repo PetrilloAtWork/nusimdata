@@ -1,6 +1,6 @@
 # The parent line must be the first non-comment line in the file
 # This line defines the product name and version
-parent nusimdata  v1_17_02
+parent nusimdata  v1_18_00
 defaultqual     e17
 
 # These optional lines define the installed directories where
@@ -20,7 +20,7 @@ bindir      fq_dir      bin
 product         version
 canvas_root_io  v1_03_04
 dk2nudata       v01_08_00a
-cetbuildtools   v7_12_01        -        only_for_build
+cetbuildtools   v7_13_02        -        only_for_build
 end_product_list
 
 
