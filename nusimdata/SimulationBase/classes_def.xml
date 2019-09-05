@@ -54,6 +54,8 @@
  <class name="art::Ptr<simb::GTruth>"                                              />
  <class name="art::Ptr<simb::MCParticle>"                                          />
 
+ <class name="std::unordered_map<std::string, std::string>"                        />
+
  <class name="std::pair< art::Ptr<simb::MCParticle>, art::Ptr<simb::MCTruth>    >" />
  <class name="std::pair< art::Ptr<simb::MCTruth>,    art::Ptr<simb::MCParticle> >" />
  <class name="std::pair< art::Ptr<simb::MCFlux>,     art::Ptr<simb::MCTruth>    >" />
