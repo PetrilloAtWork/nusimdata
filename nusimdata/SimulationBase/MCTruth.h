@@ -42,13 +42,13 @@ namespace simb {
     bool                          fNeutrinoSet; ///< flag for whether the neutrino information has been set
 
   public:
+    const simb::MCGeneratorInfo&  GeneratorInfo()     const;
+    simb::Origin_t                Origin()            const;
+    int                           NParticles()        const;
+    const simb::MCParticle&       GetParticle(int i)  const;
+    const simb::MCNeutrino&       GetNeutrino()       const;
+    bool                          NeutrinoSet()       const;
 
-    simb::Origin_t          Origin()            const;
-    int                     NParticles()        const;
-    const simb::MCParticle& GetParticle(int i)  const;
-    const simb::MCNeutrino& GetNeutrino()       const;
-    bool                    NeutrinoSet()       const;
-    
     void             Add(simb::MCParticle const& part);
     void             Add(simb::MCParticle&& part);
     void             SetGeneratorInfo(simb::Generator_t generator,
@@ -70,15 +70,16 @@ namespace simb {
   };
 }
 
-inline simb::Origin_t          simb::MCTruth::Origin()            const { return fOrigin;               }
-inline int                     simb::MCTruth::NParticles()        const { return (int)fPartList.size(); }
-inline const simb::MCParticle& simb::MCTruth::GetParticle(int i)  const { return fPartList[i];          }
-inline const simb::MCNeutrino& simb::MCTruth::GetNeutrino()       const { return fMCNeutrino;           }
-inline bool                    simb::MCTruth::NeutrinoSet()       const { return fNeutrinoSet;          }
+inline const simb::MCGeneratorInfo& simb::MCTruth::GeneratorInfo()     const { return fGenInfo;              }
+inline simb::Origin_t               simb::MCTruth::Origin()            const { return fOrigin;               }
+inline int                          simb::MCTruth::NParticles()        const { return (int)fPartList.size(); }
+inline const simb::MCParticle&      simb::MCTruth::GetParticle(int i)  const { return fPartList[i];          }
+inline const simb::MCNeutrino&      simb::MCTruth::GetNeutrino()       const { return fMCNeutrino;           }
+inline bool                         simb::MCTruth::NeutrinoSet()       const { return fNeutrinoSet;          }
 
-inline void                    simb::MCTruth::Add(simb::MCParticle const& part) { fPartList.push_back(part); }
-inline void                    simb::MCTruth::Add(simb::MCParticle&& part)      { fPartList.push_back(std::move(part)); }
-inline void                    simb::MCTruth::SetOrigin(simb::Origin_t origin) { fOrigin = origin;             }
+inline void                         simb::MCTruth::Add(simb::MCParticle const& part) { fPartList.push_back(part); }
+inline void                         simb::MCTruth::Add(simb::MCParticle&& part)      { fPartList.push_back(std::move(part)); }
+inline void                         simb::MCTruth::SetOrigin(simb::Origin_t origin)  { fOrigin = origin;             }
 
 inline void simb::MCTruth::SetGeneratorInfo(simb::Generator_t generator,
                                             const std::string &genVersion,
