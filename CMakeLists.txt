@@ -17,19 +17,10 @@
 # use cmake 3.3 or later
 cmake_minimum_required (VERSION 3.3)
 
-project(nusimdata)
+project(nusimdata VERSION 1.15.04 LANGUAGES CXX)
 
-# cetbuildtools contains our cmake modules
-SET ( CETBUILDTOOLS_VERSION $ENV{CETBUILDTOOLS_VERSION} )
-IF (NOT CETBUILDTOOLS_VERSION)
-    MESSAGE (FATAL_ERROR "ERROR: setup cetbuildtools to get the cmake modules")
-ENDIF()
-
-set(CMAKE_MODULE_PATH $ENV{CANVAS_ROOT_IO_DIR}/Modules
-                      $ENV{CETBUILDTOOLS_DIR}/Modules
-                      ${CMAKE_MODULE_PATH})
-
-
+set(fcl_dir fcl)
+find_package(cetmodules REQUIRED)
 include(CetCMakeEnv)
 cet_cmake_env()
 
@@ -42,11 +33,7 @@ cet_set_compiler_flags(DIAGS CAUTIOUS WERROR
 cet_report_compiler_flags()
 
 # these are minimum required versions, not the actual product versions
-find_ups_product( canvas )
-find_ups_product( dk2nudata )
-find_ups_product( cetbuildtools )
-find_ups_root(  )
-
+find_package( canvas_root_io REQUIRED )
 # macros 
 include(CetMake)
 include(ArtDictionary)
@@ -55,10 +42,4 @@ include(BasicPlugin)
 # source
 add_subdirectory (nusimdata)
 add_subdirectory (test)
-
-# ups - table and config files
-add_subdirectory(ups)
-# cmakeConfig for cetmodules
 add_subdirectory(cmakeConfig)
-# packaging utility
-include(UseCPack)
