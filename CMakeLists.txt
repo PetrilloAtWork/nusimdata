@@ -58,5 +58,7 @@ add_subdirectory (test)
 
 # ups - table and config files
 add_subdirectory(ups)
+# cmakeConfig for cetmodules
+add_subdirectory(cmakeConfig)
 # packaging utility
 include(UseCPack)
