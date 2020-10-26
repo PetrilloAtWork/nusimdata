@@ -105,6 +105,8 @@ namespace simb {
     else if(process.compare("kaon+Inelastic")   == 0) key = 5;
     else if(process.compare("protonInelastic")  == 0) key = 6;
     else if(process.compare("neutronInelastic") == 0) key = 7;
+    else if(process.compare("CoulombScat")      == 0) key = 8;
+    else if(process.compare("nCapture")         == 0) key = 9;
     
     return key;
   }
@@ -121,6 +123,8 @@ namespace simb {
     else if(key == 5) process = "kaon+Inelastic";
     else if(key == 6) process = "protonInelastic";
     else if(key == 7) process = "neutronInelastic";
+    else if(key == 8) process = "CoulombScat";
+    else if(key == 9) process = "nCapture";
     
     return process;
   }

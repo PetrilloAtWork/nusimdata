@@ -187,7 +187,7 @@ namespace simb {
     double Weight() const;
     void   SetWeight(double wt);
 
-    void SparsifyTrajectory();
+    void SparsifyTrajectory(double margin = 0.1);
 
     // Define a comparison operator for particles.  This allows us to
     // keep them in sets or maps.  It makes sense to order a list of
@@ -260,7 +260,7 @@ inline       void            simb::MCParticle::AddTrajectoryPoint(TLorentzVector
                                                                   TLorentzVector const& momentum,
                                                                   std::string    const& process)
                                                                               { ftrajectory.Add( position, momentum, process); }
-inline       void            simb::MCParticle::SparsifyTrajectory()               { ftrajectory.Sparsify();                    }
+inline       void            simb::MCParticle::SparsifyTrajectory(double margin)  { ftrajectory.Sparsify( margin );            }
 inline       void            simb::MCParticle::AddDaughter(int const trackID)     { fdaughters.insert(trackID);                }
 inline       void            simb::MCParticle::SetPolarization(TVector3 const& p) { fpolarization = p;                         }
 inline       void            simb::MCParticle::SetRescatter(int code)             { frescatter    = code;                      }
