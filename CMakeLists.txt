@@ -21,6 +21,9 @@ project(nusimdata LANGUAGES CXX)
 
 find_package(cetbuildtools)
 
+list(APPEND CMAKE_MODULE_PATH
+  $ENV{CANVAS_ROOT_IO_DIR}/Modules)
+
 include(CetCMakeEnv)
 cet_cmake_env()
 
