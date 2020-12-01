@@ -39,6 +39,7 @@ find_ups_root(  )
 
 # macros 
 include(CetMake)
+include(ArtDictionary)
 include(BasicPlugin)
 
 # source
