@@ -180,7 +180,8 @@ namespace simb {
                             TLorentzVector const& momentum );
     void AddTrajectoryPoint(TLorentzVector const& position,
                             TLorentzVector const& momentum,
-                            std::string    const& process);
+                            std::string    const& process,
+                            bool keepTransportation = false);
 
     // methods for giving/accessing a weight to this particle for use
     // in studies of rare processes, etc
@@ -258,8 +259,9 @@ inline       void            simb::MCParticle::AddTrajectoryPoint(TLorentzVector
                                                                               { ftrajectory.Add( position, momentum );     }
 inline       void            simb::MCParticle::AddTrajectoryPoint(TLorentzVector const& position,
                                                                   TLorentzVector const& momentum,
-                                                                  std::string    const& process)
-                                                                              { ftrajectory.Add( position, momentum, process); }
+                                                                  std::string    const& process,
+                                                                  bool keepTransportation)
+                                                                              { ftrajectory.Add( position, momentum, process, keepTransportation); }
 inline       void            simb::MCParticle::SparsifyTrajectory(double margin)  { ftrajectory.Sparsify( margin );            }
 inline       void            simb::MCParticle::AddDaughter(int const trackID)     { fdaughters.insert(trackID);                }
 inline       void            simb::MCParticle::SetPolarization(TVector3 const& p) { fpolarization = p;                         }
