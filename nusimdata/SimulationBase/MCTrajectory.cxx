@@ -162,7 +162,10 @@ namespace simb {
     // taken care of by the next range.
 
     // Need at least three points to think of removing one
-    if(size() <= 2) return;
+    // D.R. -- let's up this to four points before we start removing
+    //      -- this is helpful when retrieving the energy of the particle prior
+    //      -- to a final interaction : (Start, p1, ..., p_(n-1), End)
+    if(size() <= 3) return;
 
     // Deal in terms of distance-squared to save some sqrts
     margin *= margin;
@@ -178,6 +181,7 @@ namespace simb {
     // keep because the set does not allow duplicates and it keeps items in
     // order
     std::set<int> done;
+    done.insert(size()-2); // -- D.R. store the penultimate point
 
     while(!toCheck.empty()){
       const int loIdx = toCheck.front().first;
@@ -260,7 +264,7 @@ namespace simb {
                              );
       }
     }
-    
+
     // Remember to add the very last point in if it hasn't already been added
     if(done.count(ftrajectory.size() - 1) < 1) newTraj.push_back(*rbegin());
 
