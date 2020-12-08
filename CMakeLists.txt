@@ -14,8 +14,7 @@
 # ======================================================================
 
 
-# use cmake 3.3 or later
-cmake_minimum_required (VERSION 3.3)
+cmake_minimum_required (VERSION 3.12)
 
 project(nusimdata LANGUAGES CXX)
 
@@ -37,6 +36,7 @@ cet_report_compiler_flags()
 
 # these are minimum required versions, not the actual product versions
 find_ups_product( canvas )
+find_ups_product( canvas_root_io )
 find_ups_product( dk2nudata )
 find_ups_root(  )
 
