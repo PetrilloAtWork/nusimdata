@@ -107,6 +107,8 @@ namespace simb {
     else if(process.compare("neutronInelastic") == 0) key = 7;
     else if(process.compare("CoulombScat")      == 0) key = 8;
     else if(process.compare("nCapture")         == 0) key = 9;
+    else if(process.compare("Transportation") == 0)
+      key = 10;
     
     return key;
   }
@@ -125,6 +127,7 @@ namespace simb {
     else if(key == 7) process = "neutronInelastic";
     else if(key == 8) process = "CoulombScat";
     else if(key == 9) process = "nCapture";
+    else if(key == 10) process = "Transportation";
     
     return process;
   }
@@ -132,7 +135,8 @@ namespace simb {
   //----------------------------------------------------------------------------
   void MCTrajectory::Add(TLorentzVector const& p,
                          TLorentzVector const& m,
-                         std::string    const& process )
+                         std::string    const& process,
+                         bool keepTransportation)
   {
     // add the the momentum and position, then get the location of the added
     // bits to store the process
@@ -144,7 +148,9 @@ namespace simb {
     
     // only add a process to the list if it is defined, ie one of the values
     // allowed in the ProcessToKey() method
-    if(key > 0)
+    //
+    // Also, keep 10 (transportation) if the flag allows
+    if(key > 0 && (key != 10 || keepTransportation))
       fTrajectoryProcess.push_back(std::make_pair(insertLoc, key));
     
     return;

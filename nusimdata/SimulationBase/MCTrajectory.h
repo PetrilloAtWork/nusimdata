@@ -130,7 +130,8 @@ namespace simb {
              TLorentzVector const& m );
     void Add(TLorentzVector const& p,
              TLorentzVector const& m,
-             std::string    const& process );
+             std::string    const& process,
+             bool keepTransportation = false);
 
     unsigned char        ProcessToKey(std::string   const& process) const;
     std::string          KeyToProcess(unsigned char const& key)     const;
