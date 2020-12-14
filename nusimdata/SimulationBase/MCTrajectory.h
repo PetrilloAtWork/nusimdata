@@ -140,7 +140,7 @@ namespace simb {
     /// Remove points from trajectory. Straight line interpolation between the
     /// remaining points will pass no further than \a margin from removed
     /// points.
-    void Sparsify(double margin = .1);
+    void Sparsify(double margin = .1, bool keep_second_to_last = false);
 
   };
 

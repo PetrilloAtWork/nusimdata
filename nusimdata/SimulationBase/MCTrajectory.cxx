@@ -157,7 +157,7 @@ namespace simb {
   }
 
   //----------------------------------------------------------------------------
-  void MCTrajectory::Sparsify(double margin)
+  void MCTrajectory::Sparsify(double margin, bool keep_second_to_last)
   {
     // This is a divide-and-conquer algorithm. If the straight line between two
     // points is close enough to all the intermediate points, then just keep
@@ -171,7 +171,8 @@ namespace simb {
     // D.R. -- let's up this to four points before we start removing
     //      -- this is helpful when retrieving the energy of the particle prior
     //      -- to a final interaction : (Start, p1, ..., p_(n-1), End)
-    if(size() <= 3) return;
+    if(size() <= 3 && keep_second_to_last) return;
+    else if(size() <= 2) return;
 
     // Deal in terms of distance-squared to save some sqrts
     margin *= margin;
@@ -187,7 +188,8 @@ namespace simb {
     // keep because the set does not allow duplicates and it keeps items in
     // order
     std::set<int> done;
-    done.insert(size()-2); // -- D.R. store the penultimate point
+    if (keep_second_to_last)
+      done.insert(size()-2); // -- D.R. store the penultimate point
 
     while(!toCheck.empty()){
       const int loIdx = toCheck.front().first;
