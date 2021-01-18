@@ -180,14 +180,15 @@ namespace simb {
                             TLorentzVector const& momentum );
     void AddTrajectoryPoint(TLorentzVector const& position,
                             TLorentzVector const& momentum,
-                            std::string    const& process);
+                            std::string    const& process,
+                            bool keepTransportation = false);
 
     // methods for giving/accessing a weight to this particle for use
     // in studies of rare processes, etc
     double Weight() const;
     void   SetWeight(double wt);
 
-    void SparsifyTrajectory(double margin = 0.1);
+    void SparsifyTrajectory(double margin = 0.1, bool keep_second_to_last = false);
 
     // Define a comparison operator for particles.  This allows us to
     // keep them in sets or maps.  It makes sense to order a list of
@@ -258,9 +259,12 @@ inline       void            simb::MCParticle::AddTrajectoryPoint(TLorentzVector
                                                                               { ftrajectory.Add( position, momentum );     }
 inline       void            simb::MCParticle::AddTrajectoryPoint(TLorentzVector const& position,
                                                                   TLorentzVector const& momentum,
-                                                                  std::string    const& process)
-                                                                              { ftrajectory.Add( position, momentum, process); }
-inline       void            simb::MCParticle::SparsifyTrajectory(double margin)  { ftrajectory.Sparsify( margin );            }
+                                                                  std::string    const& process,
+                                                                  bool keepTransportation)
+                                                                              { ftrajectory.Add( position, momentum, process, keepTransportation); }
+inline       void            simb::MCParticle::SparsifyTrajectory(double margin,
+                                                                  bool keep_second_to_last)
+                                                                              { ftrajectory.Sparsify( margin, keep_second_to_last );            }
 inline       void            simb::MCParticle::AddDaughter(int const trackID)     { fdaughters.insert(trackID);                }
 inline       void            simb::MCParticle::SetPolarization(TVector3 const& p) { fpolarization = p;                         }
 inline       void            simb::MCParticle::SetRescatter(int code)             { frescatter    = code;                      }
