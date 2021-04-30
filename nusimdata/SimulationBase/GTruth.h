@@ -77,8 +77,16 @@ namespace simb {
     int            fNumPi0;       ///< number of pi0 after reaction, before FSI
     int            fNumPiPlus;    ///< number of pi pluses after reaction, before FSI
     int            fNumPiMinus;   ///< number of pi minuses after reaction, before FSI
+    int            fNumSingleGammas; ///< number of gammas after reaction, before FSI
+    int            fNumRho0;       ///< number of pi0 after reaction, before FSI
+    int            fNumRhoPlus;    ///< number of pi pluses after reaction, before FSI
+    int            fNumRhoMinus;   ///< number of pi minuses after reaction, before FSI
     int            fResNum;       ///< resonance number
     int            fDecayMode;                                  // added version 13
+
+    int            fFinalQuarkPdg;
+    int            fFinalLeptonPdg;
+
 
     // genie::KPhaseSpace (sub-object to genie::Interactions)
     // has no relevant private data
