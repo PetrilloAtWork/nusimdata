@@ -56,6 +56,7 @@ namespace simb {
     int            fGint;         ///< interaction code
 
     // genie::Kinematics info (sub-object to genie::Interactions)
+
     ///< these are for the internal (on shell) genie kinematics
     ///<   this list might be an incomplete transcription of map<KineVar_t,double>
     double         fgQ2;
@@ -64,6 +65,10 @@ namespace simb {
     double         fgT;
     double         fgX;
     double         fgY;
+
+    ///< a common running variable to be recorded
+    double         fgWrun;
+
     TLorentzVector fFSleptonP4;   ///< generated final state primary lepton (LAB frame) // added version 13
     TLorentzVector fFShadSystP4;  ///< generated final state hadronic system (LAB frame)
 
