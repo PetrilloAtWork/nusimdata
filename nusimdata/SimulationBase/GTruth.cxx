@@ -48,6 +48,8 @@ namespace simb {
     , fgT(kUndefinedValue)
     , fgX(kUndefinedValue)
     , fgY(kUndefinedValue)
+    , fgWrun(kUndefinedValue)
+
     , fFSleptonP4(0, 0, 0, 0)
     , fFShadSystP4(0, 0, 0, 0)
 
@@ -118,6 +120,7 @@ namespace simb {
                          << std::setw(11) << gtruth.fgT           << std::endl
       << "  X  Y       " << std::setw(11) << gtruth.fgX           << " "
                          << std::setw(11) << gtruth.fgY           << std::endl
+      << "  Wrun       " << std::setw(11) << gtruth.fgWrun        << std::endl
       << " FSlepton    " << gtruthaux::stringifyTLorentzVector(gtruth.fFSleptonP4) << std::endl
       << " FShadSyst   " << gtruthaux::stringifyTLorentzVector(gtruth.fFShadSystP4) << std::endl
 
