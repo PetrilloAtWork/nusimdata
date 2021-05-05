@@ -15,7 +15,7 @@
 
 
 # use cmake 3.3 or later
-cmake_minimum_required(VERSION 3.12...3.18 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.18.2 FATAL_ERROR)
 
 project(nusimdata LANGUAGES CXX)
 
