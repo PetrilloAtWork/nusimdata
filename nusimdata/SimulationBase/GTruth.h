@@ -56,6 +56,7 @@ namespace simb {
     int            fGint;         ///< interaction code
 
     // genie::Kinematics info (sub-object to genie::Interactions)
+
     ///< these are for the internal (on shell) genie kinematics
     ///<   this list might be an incomplete transcription of map<KineVar_t,double>
     double         fgQ2;
@@ -64,6 +65,10 @@ namespace simb {
     double         fgT;
     double         fgX;
     double         fgY;
+
+    ///< a common running variable to be recorded
+    double         fgWrun;
+
     TLorentzVector fFSleptonP4;   ///< generated final state primary lepton (LAB frame) // added version 13
     TLorentzVector fFShadSystP4;  ///< generated final state hadronic system (LAB frame)
 
@@ -77,8 +82,16 @@ namespace simb {
     int            fNumPi0;       ///< number of pi0 after reaction, before FSI
     int            fNumPiPlus;    ///< number of pi pluses after reaction, before FSI
     int            fNumPiMinus;   ///< number of pi minuses after reaction, before FSI
+    int            fNumSingleGammas; ///< number of gammas after reaction, before FSI
+    int            fNumRho0;       ///< number of pi0 after reaction, before FSI
+    int            fNumRhoPlus;    ///< number of pi pluses after reaction, before FSI
+    int            fNumRhoMinus;   ///< number of pi minuses after reaction, before FSI
     int            fResNum;       ///< resonance number
     int            fDecayMode;                                  // added version 13
+
+    int            fFinalQuarkPdg;
+    int            fFinalLeptonPdg;
+
 
     // genie::KPhaseSpace (sub-object to genie::Interactions)
     // has no relevant private data
