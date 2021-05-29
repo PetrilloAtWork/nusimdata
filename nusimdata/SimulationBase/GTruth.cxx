@@ -48,6 +48,8 @@ namespace simb {
     , fgT(kUndefinedValue)
     , fgX(kUndefinedValue)
     , fgY(kUndefinedValue)
+    , fgWrun(kUndefinedValue)
+
     , fFSleptonP4(0, 0, 0, 0)
     , fFShadSystP4(0, 0, 0, 0)
 
@@ -60,8 +62,14 @@ namespace simb {
     , fNumPi0(-1)
     , fNumPiPlus(-1)
     , fNumPiMinus(-1)
+    , fNumSingleGammas(-1)
+    , fNumRho0(-1)
+    , fNumRhoPlus(-1)
+    , fNumRhoMinus(-1)
     , fResNum(-1)
     , fDecayMode(-1)
+    , fFinalQuarkPdg(0)
+    , fFinalLeptonPdg(0)
   {
 
   }
@@ -112,6 +120,7 @@ namespace simb {
                          << std::setw(11) << gtruth.fgT           << std::endl
       << "  X  Y       " << std::setw(11) << gtruth.fgX           << " "
                          << std::setw(11) << gtruth.fgY           << std::endl
+      << "  Wrun       " << std::setw(11) << gtruth.fgWrun        << std::endl
       << " FSlepton    " << gtruthaux::stringifyTLorentzVector(gtruth.fFSleptonP4) << std::endl
       << " FShadSyst   " << gtruthaux::stringifyTLorentzVector(gtruth.fFShadSystP4) << std::endl
 
@@ -124,8 +133,14 @@ namespace simb {
       << "  Npi(0,+,-) " << std::setw(4)  << gtruth.fNumPi0       << " "
                          << std::setw(4)  << gtruth.fNumPiPlus    << " "
                          << std::setw(4)  << gtruth.fNumPiMinus   << std::endl
+      << "  NSingleGammas " << std::setw(4)  << gtruth.fNumSingleGammas
+      << "  NRho(0,+,-) " << std::setw(4)  << gtruth.fNumRho0       << " "
+                          << std::setw(4)  << gtruth.fNumRhoPlus    << " "
+                          << std::setw(4)  << gtruth.fNumRhoMinus   << std::endl
       << "  ResNum     " << std::setw(4)  << gtruth.fResNum       << " "
       << "  DecayMode  " << std::setw(4)  << gtruth.fDecayMode    << std::endl
+      << "  FinalQuarkPdg " << std::setw(4) << gtruth.fFinalQuarkPdg << " "
+      << "  FinalLeptonPdg " << std::setw(4) << gtruth.fFinalLeptonPdg
 
       << std::endl ;
 
