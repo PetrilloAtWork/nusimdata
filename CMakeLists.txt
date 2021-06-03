@@ -15,14 +15,12 @@
 
 
 # use cmake 3.3 or later
-cmake_minimum_required(VERSION 3.18.2 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.12...3.18 FATAL_ERROR)
 
-project(nusimdata LANGUAGES CXX)
+project(nusimdata VERSION 1.22.03 LANGUAGES CXX)
 
-find_package(cetbuildtools)
-
-list(APPEND CMAKE_MODULE_PATH
-  $ENV{CANVAS_ROOT_IO_DIR}/Modules)
+find_package(cetmodules)
+find_package(canvas_root_io)
 
 include(CetCMakeEnv)
 cet_cmake_env()
@@ -51,6 +49,8 @@ add_subdirectory (nusimdata)
 add_subdirectory (test)
 
 # ups - table and config files
+if(WANT_UPS)
 add_subdirectory(ups)
 # packaging utility
 include(UseCPack)
+endif()
