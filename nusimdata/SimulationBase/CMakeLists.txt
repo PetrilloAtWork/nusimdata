@@ -9,7 +9,7 @@ include_directories( $ENV{DK2NUDATA_INC} )
 set( SIMB_LIBS
                canvas
                fhiclcpp
-               ${DK2NU_TREE}  # additional data objects assoc w/ MCTruth
+               DK2NU_TREE  # additional data objects assoc w/ MCTruth
                cetlib
                cetlib_except
                ${ROOT_BASIC_LIB_LIST}
