@@ -1,6 +1,6 @@
 # The parent line must be the first non-comment line in the file
 # This line defines the product name and version
-parent nusimdata  v1_24_02
+parent nusimdata  v1_24_03
 defaultqual     e19
 
 # These optional lines define the installed directories where
@@ -18,8 +18,8 @@ bindir      fq_dir      bin
 # note that art -q nu: depends, via root, on geant4 and more
 # this means that we only need to list art, cry, and genie as a dependencies
 product         version
-canvas_root_io  v1_09_02
-dk2nudata       v01_10_00a
+canvas_root_io  v1_09_03
+dk2nudata       v01_10_00c
 cetbuildtools   v8_10_01        -        only_for_build
 end_product_list
 
