@@ -7,14 +7,14 @@ include_directories( $ENV{DK2NUDATA_INC} )
 #   Matrix Physics MathCore Thread
 
 set( SIMB_LIBS
-               canvas
+               canvas::canvas
                fhiclcpp
                DK2NU_TREE  # additional data objects assoc w/ MCTruth
-               cetlib
-               cetlib_except
+               cetlib::cetlib
+               cetlib_except::cetlib_except
                ${ROOT_BASIC_LIB_LIST}
                ${ROOT_EG} )  # EG needed for TParticleDB
-#               ${ROOT_CORE}
+#               ROOT::Core
 #               ${ROOT_CINT}
 #               ${ROOT_RIO}
 #               ${ROOT_NET}
