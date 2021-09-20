@@ -13,27 +13,12 @@ set( SIMB_LIBS
                cetlib::cetlib
                cetlib_except::cetlib_except
                ${ROOT_BASIC_LIB_LIST}
-               ${ROOT_EG} )  # EG needed for TParticleDB
-#               ROOT::Core
-#               ${ROOT_CINT}
-#               ${ROOT_RIO}
-#               ${ROOT_NET}
-#               ${ROOT_HIST}
-#               ${ROOT_GRAF}
-#               ${ROOT_GRAF3D}
-#               ${ROOT_GPAD}
-#               ${ROOT_TREE}
-#               ${ROOT_RINT}
-#               ${ROOT_POSTSCRIPT}
-#               ${ROOT_MATRIX}
-#               ${ROOT_PHYSICS}
-#               ${ROOT_MATHCORE}
-#               ${ROOT_THREAD}
+               ROOT::EG )  # EG needed for TParticleDB
 
 cet_make( LIBRARIES ${SIMB_LIBS}
           NO_DICTIONARY )
 
-art_dictionary( DICTIONARY_LIBRARIES nusimdata_SimulationBase )
+art_dictionary( DICTIONARY_LIBRARIES nusimdata::SimulationBase )
 
 install_headers()
 install_fhicl()
