@@ -15,15 +15,15 @@ cet_cmake_env()
 cet_set_compiler_flags(DIAGS CAUTIOUS WERROR 
                        NO_UNDEFINED
                        EXTRA_FLAGS -pedantic 
-                       EXTRA_CXX_FLAGS -D_GLIBCXX_USE_NANOSLEEP 
-                                       -Wno-unused-local-typedefs -Wno-variadic-macros)
+                                   $<$<COMPILE_LANGUAGE:CXX>:-D_GLIBCXX_USE_NANOSLEEP 
+                                   -Wno-unused-local-typedefs -Wno-variadic-macros>)
 cet_report_compiler_flags(REPORT_THRESHOLD VERBOSE)
+
 
 find_package(canvas REQUIRED)
 find_package(canvas_root_io REQUIRED) # Needed for art_dictionary().
-find_package(dk2nudata REQUIRED)
 
-# macros 
+# macros
 include(CetMake)
 include(ArtDictionary)
 include(BasicPlugin)
