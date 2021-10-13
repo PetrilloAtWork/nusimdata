@@ -1,4 +1,6 @@
 
+### MIGRATE-ACTION-RECOMMENDED: ups variables found here
+### we probably need to write a find module for dk2nudata
 find_library( DK2NU_TREE NAMES dk2nuTree PATHS ENV DK2NUDATA_LIB NO_DEFAULT_PATH )
 include_directories( $ENV{DK2NUDATA_INC} ) ### MIGRATE-ACTION-RECOMMENDED: use target_link_directories() with target semantics
 
