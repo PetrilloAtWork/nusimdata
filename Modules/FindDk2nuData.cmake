@@ -49,9 +49,10 @@ if (Dk2nuData_FOUND AND _cet_Dk2nuData_include_dir)
   else()
     message(STATUS "finding Dk2nuData_LIBRARY")
     find_library(Dk2nuData_LIBRARY NAMES dk2nuTree PATHS ENV DK2NUDATA_LIB REQUIRED)
-    ##add_library(${CMAKE_FIND_PACKAGE_NAME}::dk2nuTree INTERFACE IMPORTED)
-    ##set_target_properties(${CMAKE_FIND_PACKAGE_NAME}::dk2nuTree PROPERTIES
-    ##  INTERFACE_INCLUDE_DIRECTORIES "${_cet_Dk2nuData_include_dir}")
+    add_library(Dk2nuData::dk2nuTree UNKNOWN IMPORTED)
+    set_target_properties(Dk2nuData::dk2nuTree PROPERTIES
+      IMPORTED_LOCATION "${Dk2nuData_LIBRARY}"
+      INTERFACE_INCLUDE_DIRECTORIES "${Dk2nuData_INCLUDE_DIR}")
   endif()
 endif()
 message(STATUS "_cet_Dk2nuData_include_dir is ${_cet_Dk2nuData_include_dir}")
@@ -69,13 +70,6 @@ if(Dk2nuData_FOUND)
   set(Dk2nuData_LIBRARIES ${Dk2nuData_LIBRARY})
   set(Dk2nuData_INCLUDE_DIRS ${Dk2nuData_INCLUDE_DIR})
   set(Dk2nuData_DIR "${_cet_Dk2nuData_dir}")
-endif()
-if(Dk2nuData_FOUND AND NOT TARGET Dk2nuData::dk2nuTree)
-  add_library(Dk2nuData::dk2nuTree UNKNOWN IMPORTED)
-  set_target_properties(Dk2nuData::dk2nuTree PROPERTIES
-    IMPORTED_LOCATION "${Dk2nuData_LIBRARY}"
-    INTERFACE_INCLUDE_DIRECTORIES "${Dk2nuData_INCLUDE_DIR}"
-  )
 endif()
 
 
