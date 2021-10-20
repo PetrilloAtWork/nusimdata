@@ -11,6 +11,9 @@ project(nusimdata VERSION 1.24.05 LANGUAGES CXX)
 include(CetCMakeEnv)
 cet_cmake_env()
 
+# Find our own CMake modules, and tell everyone else where to find them.
+cet_cmake_module_directories(Modules)
+
 # -D_GLIBCXX_USE_NANOSLEEP is needed to make std::this_thread::sleep_for available.
 cet_set_compiler_flags(DIAGS CAUTIOUS WERROR 
                        NO_UNDEFINED
@@ -18,7 +21,6 @@ cet_set_compiler_flags(DIAGS CAUTIOUS WERROR
                                    $<$<COMPILE_LANGUAGE:CXX>:-D_GLIBCXX_USE_NANOSLEEP 
                                    -Wno-unused-local-typedefs -Wno-variadic-macros>)
 cet_report_compiler_flags(REPORT_THRESHOLD VERBOSE)
-
 
 find_package(canvas REQUIRED)
 find_package(canvas_root_io REQUIRED) # Needed for art_dictionary().
