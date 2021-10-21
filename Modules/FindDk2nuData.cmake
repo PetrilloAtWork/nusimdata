@@ -42,13 +42,13 @@ else()
   endif()
 endif()
 if (Dk2nuData_FOUND)
-  if (NOT TARGET Dk2nuData::dk2nuTree)
-    add_library(Dk2nuData::dk2nuTree SHARED IMPORTED)
-    set_target_properties(Dk2nuData::dk2nuTree PROPERTIES
+  if (NOT TARGET dk2nu::dk2nuTree)
+    add_library(dk2nu::dk2nuTree SHARED IMPORTED)
+    set_target_properties(dk2nu::dk2nuTree PROPERTIES
       INTERFACE_INCLUDE_DIRECTORIES "${Dk2nuData_INCLUDE_DIRS}"
       IMPORTED_LOCATION "${Dk2nuData_LIBRARY}"
       )
-    set(Dk2nuData_LIBRARY "Dk2nuData::dk2nuTree")
+    set(Dk2nuData_LIBRARY "dk2nu::dk2nuTree")
   endif()
   if (CETMODULES_CURRENT_PROJECT_NAME AND
       ${CETMODULES_CURRENT_PROJECT_NAME}_OLD_STYLE_CONFIG_VARS)
