@@ -1,11 +1,11 @@
 
-find_package(Dk2nuData REQUIRED)
+find_package(dk2nudata REQUIRED)
 find_package(ROOT COMPONENTS Tree RIO Core EG REQUIRED)
 
 cet_make( LIBRARIES
                canvas::canvas
                fhiclcpp::fhiclcpp
-               dk2nu::dk2nuTree  # additional data objects assoc w/ MCTruth
+               dk2nu::Tree  # additional data objects assoc w/ MCTruth
                cetlib::cetlib
                cetlib_except::cetlib_except
                ROOT::Core
