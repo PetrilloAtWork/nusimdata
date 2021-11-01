@@ -1,8 +1,9 @@
 
-find_package(dk2nudata REQUIRED)
 find_package(ROOT COMPONENTS Tree RIO Core EG REQUIRED)
 
-cet_make( LIBRARIES
+cet_make_library(SOURCE GTruth.cxx  MCFlux.cxx  MCNeutrino.cxx
+                        MCParticle.cxx  MCTrajectory.cxx  MCTruth.cxx
+               LIBRARIES PUBLIC
                canvas::canvas
                fhiclcpp::fhiclcpp
                dk2nu::Tree  # additional data objects assoc w/ MCTruth
@@ -12,7 +13,7 @@ cet_make( LIBRARIES
                ROOT::RIO
                ROOT::Tree
                ROOT::EG # EG needed for TParticleDB
-          NO_DICTIONARY )
+               )
 
 art_dictionary( DICTIONARY_LIBRARIES nusimdata::SimulationBase )
 
