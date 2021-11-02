@@ -1,21 +1,16 @@
 
-find_package(ROOT COMPONENTS Tree RIO Core EG REQUIRED)
+find_package(ROOT PUBLIC COMPONENTS Core Physics RIO Tree REQUIRED)
+find_package(ROOT PRIVATE COMPONENTS EG REQUIRED)
 
 cet_make_library(SOURCE GTruth.cxx  MCFlux.cxx  MCNeutrino.cxx
                         MCParticle.cxx  MCTrajectory.cxx  MCTruth.cxx
-               LIBRARIES PUBLIC
+               LIBRARIES PRIVATE
                canvas::canvas
-               fhiclcpp::fhiclcpp
-               dk2nu::Tree  # additional data objects assoc w/ MCTruth
-               cetlib::cetlib
-               cetlib_except::cetlib_except
-               ROOT::Core
-               ROOT::RIO
-               ROOT::Tree
                ROOT::EG # EG needed for TParticleDB
-               )
+               PUBLIC
+               ROOT::Physics)
 
-art_dictionary( DICTIONARY_LIBRARIES nusimdata::SimulationBase )
+art_dictionary(DICTIONARY_LIBRARIES nusimdata::SimulationBase dk2nu::Tree)
 
 install_headers()
 install_fhicl()
