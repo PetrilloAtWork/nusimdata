@@ -53,7 +53,7 @@ if (dk2nudata_FOUND)
   if (CETMODULES_CURRENT_PROJECT_NAME AND
       ${CETMODULES_CURRENT_PROJECT_NAME}_OLD_STYLE_CONFIG_VARS)
     include_directories("${dk2nudata_INCLUDE_DIRS}")
-    set(DK2NUDATA "${dk2nudata_LIBRARY")
+    set(DK2NUDATA "${dk2nudata_LIBRARY}")
   endif()
 endif()
 
