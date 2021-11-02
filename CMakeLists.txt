@@ -22,10 +22,11 @@ cet_set_compiler_flags(DIAGS CAUTIOUS WERROR
                                    -Wno-unused-local-typedefs -Wno-variadic-macros>)
 cet_report_compiler_flags(REPORT_THRESHOLD VERBOSE)
 
+find_package(cetlib_except REQUIRED)
 find_package(cetlib REQUIRED)
-find_package(canvas REQUIRED)
+find_package(canvas PUBLIC REQUIRED)
 find_package(canvas_root_io REQUIRED) # Needed for art_dictionary().
-find_package(dk2nudata REQUIRED)
+find_package(dk2nudata PUBLIC REQUIRED)
 
 # macros
 include(CetMake)
