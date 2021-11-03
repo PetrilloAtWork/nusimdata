@@ -95,9 +95,8 @@ namespace simb {
     , frescatter(p.Rescatter())
   {
 
-    ftrackID = p.TrackID()>=0? p.TrackId()+offset : p.TrackId()-offset;
-
-    fmother = p.Mohter()>=0? p.Mother()+offset : p.Mohter()-offset;
+    ftrackId = p.TrackId()>=0? p.TrackId()+offset : p.TrackId()-offset;
+    fmother  = p.Mother()>=0?  p.Mother()+offset  : p.Mother()-offset;
 
     for(int i=0; i<p.NumberDaughters(); i++){
       if(p.Daughter(i)>=0)
