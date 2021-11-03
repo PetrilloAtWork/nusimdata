@@ -85,9 +85,7 @@ namespace simb {
 
   MCParticle::MCParticle(MCParticle const& p, int offset)
     : fstatus(p.StatusCode())
-    , ftrackId(p.TrackId()+offset)
     , fpdgCode(p.PdgCode())
-    , fmother(p.Mother()+offset)
     , fprocess(p.Process())
     , fendprocess(p.EndProcess())
     , ftrajectory(p.Trajectory())
@@ -96,8 +94,17 @@ namespace simb {
     , fGvtx(p.GetGvtx())
     , frescatter(p.Rescatter())
   {
-    for(int i=0; i<p.NumberDaughters(); i++)
-      fdaughters.insert(p.Daughter(i)+offset);
+
+    ftrackID = p.TrackID()>=0? p.TrackId()+offset : p.TrackId()-offset;
+
+    fmother = p.Mohter()>=0? p.Mother()+offset : p.Mohter()-offset;
+
+    for(int i=0; i<p.NumberDaughters(); i++){
+      if(p.Daughter(i)>=0)
+	fdaughters.insert(p.Daughter(i)+offset);
+      else
+	fdaughters.insert(p.Daughter(i)-offset);
+    }    
   }
 
 
