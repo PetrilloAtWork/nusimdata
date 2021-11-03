@@ -1,24 +1,16 @@
 
-cet_find_library( DK2NU_TREE NAMES dk2nuTree PATHS ENV DK2NUDATA_LIB NO_DEFAULT_PATH )
-include_directories( $ENV{DK2NUDATA_INC} )
+find_package(ROOT PUBLIC COMPONENTS Core Physics RIO Tree REQUIRED)
+find_package(ROOT PRIVATE COMPONENTS EG REQUIRED)
 
-# ROOT_BASIC_LIB_LIST is:
-#   Core RIO Net Imt Hist Graf Graf3d Gpad Tree Rint Postscript
-#   Matrix Physics MathCore Thread
-
-set( SIMB_LIBS
+cet_make_library(SOURCE GTruth.cxx  MCFlux.cxx  MCNeutrino.cxx
+                        MCParticle.cxx  MCTrajectory.cxx  MCTruth.cxx
+               LIBRARIES PRIVATE
                canvas::canvas
-               fhiclcpp
-               DK2NU_TREE  # additional data objects assoc w/ MCTruth
-               cetlib::cetlib
-               cetlib_except::cetlib_except
-               ${ROOT_BASIC_LIB_LIST}
-               ROOT::EG )  # EG needed for TParticleDB
+               ROOT::EG # EG needed for TParticleDB
+               PUBLIC
+               ROOT::Physics)
 
-cet_make( LIBRARIES ${SIMB_LIBS}
-          NO_DICTIONARY )
-
-art_dictionary( DICTIONARY_LIBRARIES nusimdata::SimulationBase )
+art_dictionary(DICTIONARY_LIBRARIES nusimdata::SimulationBase dk2nu::Tree)
 
 install_headers()
 install_fhicl()
