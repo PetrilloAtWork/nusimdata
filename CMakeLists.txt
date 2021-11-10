@@ -17,7 +17,7 @@
 # use cmake 3.3 or later
 cmake_minimum_required(VERSION 3.18.2 FATAL_ERROR)
 
-project(nusimdata VERSION 1.24.05 LANGUAGES CXX)
+project(nusimdata VERSION 1.24.06 LANGUAGES CXX)
 
 find_package(cetbuildtools)
 
