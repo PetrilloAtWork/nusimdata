@@ -1,16 +1,23 @@
+find_package(canvas_root_io REQUIRED) # Needed for art_dictionary().
 
-find_package(ROOT PUBLIC COMPONENTS Core Physics RIO Tree REQUIRED)
-find_package(ROOT PRIVATE COMPONENTS EG REQUIRED)
+# macros
+include(CetMake)
+include(ArtDictionary)
+include(BasicPlugin)
+
+find_package(dk2nudata REQUIRED PUBLIC)
 
 cet_make_library(SOURCE GTruth.cxx  MCFlux.cxx  MCNeutrino.cxx
                         MCParticle.cxx  MCTrajectory.cxx  MCTruth.cxx
                LIBRARIES PRIVATE
                canvas::canvas
-               ROOT::EG # EG needed for TParticleDB
+               cetlib_except::cetlib_except
+               ROOT::EG # EG needed for TParticlePDG.h
                PUBLIC
-               ROOT::Physics)
+               ROOT::Physics # For TLorentzVector.h
+               )
 
-art_dictionary(DICTIONARY_LIBRARIES nusimdata::SimulationBase dk2nu::Tree)
+art_dictionary(DICTIONARY_LIBRARIES PRIVATE nusimdata::SimulationBase dk2nu::Tree)
 
 install_headers()
 install_fhicl()
