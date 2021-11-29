@@ -22,21 +22,16 @@ cet_set_compiler_flags(DIAGS CAUTIOUS WERROR
                                    -Wno-unused-local-typedefs -Wno-variadic-macros>)
 cet_report_compiler_flags(REPORT_THRESHOLD VERBOSE)
 
-find_package(cetlib_except REQUIRED)
-find_package(cetlib REQUIRED)
-find_package(canvas PUBLIC REQUIRED)
-find_package(canvas_root_io REQUIRED) # Needed for art_dictionary().
-find_package(dk2nudata PUBLIC REQUIRED)
+# source
+add_subdirectory (Modules)
 
-# macros
-include(CetMake)
-include(ArtDictionary)
-include(BasicPlugin)
+find_package(cetlib_except REQUIRED PUBLIC)
+find_package(canvas REQUIRED PUBLIC)
+find_package(ROOT PUBLIC COMPONENTS Core EG Physics RIO Tree REQUIRED)
 
 # source
 add_subdirectory (nusimdata)
 add_subdirectory (test)
-add_subdirectory (Modules)
 
 # ups - table and config files
 # packaging utility
