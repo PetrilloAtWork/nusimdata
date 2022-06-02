@@ -13,8 +13,22 @@
 #include <TVector3.h>
 
 #include <iterator>
-#include <iostream>
+#include <ostream>
 #include <climits>
+
+namespace {
+  
+  int applyIDoffset(int ID, int offset) {
+    // ID = 0 is preserved because of its special meaning
+    return (ID == 0)
+      ? ID
+      : (ID > 0)
+        ? ID + offset
+        : ID - offset
+        ;
+  } // applyIDoffset()
+  
+} // local namespace
 
 namespace simb {
 
@@ -85,7 +99,9 @@ namespace simb {
 
   MCParticle::MCParticle(MCParticle const& p, int offset)
     : fstatus(p.StatusCode())
+    , ftrackId(applyIDoffset(p.TrackId(), offset))
     , fpdgCode(p.PdgCode())
+    , fmother(applyIDoffset(p.Mother(), offset))
     , fprocess(p.Process())
     , fendprocess(p.EndProcess())
     , ftrajectory(p.Trajectory())
@@ -94,15 +110,8 @@ namespace simb {
     , fGvtx(p.GetGvtx())
     , frescatter(p.Rescatter())
   {
-
-    ftrackId = p.TrackId()>=0? p.TrackId()+offset : p.TrackId()-offset;
-    fmother  = p.Mother()>=0?  p.Mother()+offset  : p.Mother()-offset;
-
     for(int i=0; i<p.NumberDaughters(); i++){
-      if(p.Daughter(i)>=0)
-	fdaughters.insert(p.Daughter(i)+offset);
-      else
-	fdaughters.insert(p.Daughter(i)-offset);
+      fdaughters.insert(applyIDoffset(p.Daughter(i), offset));
     }    
   }
 
